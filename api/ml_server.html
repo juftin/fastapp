@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml_server package &mdash; ml-server 0.1.0 documentation</title>
+  <title>ml_server package &mdash; ml-server 0.1.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/autodoc_pydantic.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ml_server.models package" href="ml_server.models.html" />
+    <link rel="next" title="ml_server.app package" href="ml_server.app.html" />
     <link rel="prev" title="ml_server" href="modules.html" /> 
 </head>
 
@@ -45,14 +45,15 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">CLI Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redoc.html">REST API Documentation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ml_server package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ml_server.app.html">ml_server.app package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ml_server.models.html">ml_server.models package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ml_server.app">ml_server.app module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ml_server.cli">ml_server.cli module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ml_server.serve">ml_server.serve module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ml_server">Module contents</a></li>
@@ -93,6 +94,14 @@
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="ml_server.app.html">ml_server.app package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ml_server.app.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_server.app.html#module-ml_server.app.asgi">ml_server.app.asgi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_server.app.html#module-ml_server.app.machine_learning">ml_server.app.machine_learning module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_server.app.html#module-ml_server.app.utils">ml_server.app.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_server.app.html#module-ml_server.app">Module contents</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="ml_server.models.html">ml_server.models package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ml_server.models.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ml_server.models.html#module-ml_server.models.bodies">ml_server.models.bodies module</a></li>
@@ -105,34 +114,6 @@
 </section>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
-</section>
-<section id="module-ml_server.app">
-<span id="ml-server-app-module"></span><h2>ml_server.app module<a class="headerlink" href="#module-ml_server.app" title="Permalink to this headline"></a></h2>
-<p>FastAPI Backend</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="ml_server.app.get_most_similar">
-<span class="sig-prename descclassname"><span class="pre">ml_server.app.</span></span><span class="sig-name descname"><span class="pre">get_most_similar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ml_server.models.html#ml_server.models.bodies.GensimRequest" title="ml_server.models.bodies.GensimRequest"><span class="pre">ml_server.models.bodies.GensimRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/ml_server/app.html#get_most_similar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.app.get_most_similar" title="Permalink to this definition"></a></dt>
-<dd><p>Get a Gensim <cite>gensim.most_similar</cite> response</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ml_server.app.get_sentiment">
-<span class="sig-prename descclassname"><span class="pre">ml_server.app.</span></span><span class="sig-name descname"><span class="pre">get_sentiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ml_server.models.html#ml_server.models.bodies.SentimentRequest" title="ml_server.models.bodies.SentimentRequest"><span class="pre">ml_server.models.bodies.SentimentRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="ml_server.models.html#ml_server.models.responses.SentimentResponse" title="ml_server.models.responses.SentimentResponse"><span class="pre">ml_server.models.responses.SentimentResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/ml_server/app.html#get_sentiment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.app.get_sentiment" title="Permalink to this definition"></a></dt>
-<dd><p>Get a <cite>SentimentIntensityAnalyzer</cite> polarity_scores response</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ml_server.app.ping">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.app.</span></span><span class="sig-name descname"><span class="pre">ping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ml_server.models.html#ml_server.models.responses.PingResponse" title="ml_server.models.responses.PingResponse"><span class="pre">ml_server.models.responses.PingResponse</span></a></span></span><a class="reference internal" href="../_modules/ml_server/app.html#ping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.app.ping" title="Permalink to this definition"></a></dt>
-<dd><p>Return a Health Response</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ml_server.app.request">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.app.</span></span><span class="sig-name descname"><span class="pre">request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ml_server.models.html#ml_server.models.bodies.RequestBody" title="ml_server.models.bodies.RequestBody"><span class="pre">ml_server.models.bodies.RequestBody</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ml_server.models.html#ml_server.models.bodies.RequestBody" title="ml_server.models.bodies.RequestBody"><span class="pre">ml_server.models.bodies.RequestBody</span></a></span></span><a class="reference internal" href="../_modules/ml_server/app.html#request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.app.request" title="Permalink to this definition"></a></dt>
-<dd><p>Example Post Request with Expected Data</p>
-</dd></dl>
-
 </section>
 <section id="module-ml_server.cli">
 <span id="ml-server-cli-module"></span><h2>ml_server.cli module<a class="headerlink" href="#module-ml_server.cli" title="Permalink to this headline"></a></h2>
@@ -226,7 +207,7 @@ you. More info at <a class="reference external" href="https://github.com/tiangol
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="modules.html" class="btn btn-neutral float-left" title="ml_server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ml_server.models.html" class="btn btn-neutral float-right" title="ml_server.models package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ml_server.app.html" class="btn btn-neutral float-right" title="ml_server.app package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

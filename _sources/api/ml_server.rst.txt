@@ -7,18 +7,11 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   ml_server.app
    ml_server.models
 
 Submodules
 ----------
-
-ml\_server.app module
----------------------
-
-.. automodule:: ml_server.app
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 ml\_server.cli module
 ---------------------

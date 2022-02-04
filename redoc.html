@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Python Module Index &mdash; ml-server 0.1.1 documentation</title>
+  <title>ml-server REST API &mdash; ml-server 0.1.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/autodoc_pydantic.css" type="text/css" />
@@ -22,9 +23,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
- 
-
-
+    <link rel="next" title="ml_server" href="api/modules.html" />
+    <link rel="prev" title="ml-server CLI" href="cli.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,10 +42,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="readme.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">CLI Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="redoc.html">REST API Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">REST API Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/modules.html">API Documentation</a></li>
 </ul>
 
@@ -63,8 +63,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Python Module Index</li>
+      <li>ml-server REST API</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/redoc.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -72,74 +73,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-
-   <h1>Python Module Index</h1>
-
-   <div class="modindex-jumpbox">
-   <a href="#cap-m"><strong>m</strong></a>
-   </div>
-
-   <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-m"><td></td><td>
-       <strong>m</strong></td><td></td></tr>
-     <tr>
-       <td><img src="_static/minus.png" class="toggler"
-              id="toggle-1" style="display: none" alt="-" /></td>
-       <td>
-       <a href="api/ml_server.html#module-ml_server"><code class="xref">ml_server</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api/ml_server.app.html#module-ml_server.app"><code class="xref">ml_server.app</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api/ml_server.app.html#module-ml_server.app.asgi"><code class="xref">ml_server.app.asgi</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api/ml_server.app.html#module-ml_server.app.machine_learning"><code class="xref">ml_server.app.machine_learning</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api/ml_server.app.html#module-ml_server.app.utils"><code class="xref">ml_server.app.utils</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api/ml_server.html#module-ml_server.cli"><code class="xref">ml_server.cli</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api/ml_server.models.html#module-ml_server.models"><code class="xref">ml_server.models</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api/ml_server.models.html#module-ml_server.models.bodies"><code class="xref">ml_server.models.bodies</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api/ml_server.models.html#module-ml_server.models.responses"><code class="xref">ml_server.models.responses</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api/ml_server.html#module-ml_server.serve"><code class="xref">ml_server.serve</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+  <section id="ml-server-rest-api">
+<h1>ml-server REST API<a class="headerlink" href="#ml-server-rest-api" title="Permalink to this headline"></a></h1>
+<p>ml-server uses an OpenAPI supported ASGI Server with FastAPI.</p>
+<a class="reference internal image-reference" href="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png"><img alt="FastAPI" class="align-center" src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="https://www.openapis.org/wp-content/uploads/sites/3/2018/02/OpenAPI_Logo_Pantone-1.png"><img alt="OpenAPI" class="align-center" src="https://www.openapis.org/wp-content/uploads/sites/3/2018/02/OpenAPI_Logo_Pantone-1.png" style="width: 330px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><a class="reference external" href="_static/redoc.html">View Documentation in a Different Window.</a></div>
+</div>
+<iframe
+    src="_static/redoc.html"
+    height="700"
+    width="100%">
+</iframe></section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cli.html" class="btn btn-neutral float-left" title="ml-server CLI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api/modules.html" class="btn btn-neutral float-right" title="ml_server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

@@ -1,0 +1,37 @@
+ml\_server.app package
+======================
+
+Submodules
+----------
+
+ml\_server.app.asgi module
+--------------------------
+
+.. automodule:: ml_server.app.asgi
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ml\_server.app.machine\_learning module
+---------------------------------------
+
+.. automodule:: ml_server.app.machine_learning
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ml\_server.app.utils module
+---------------------------
+
+.. automodule:: ml_server.app.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: ml_server.app
+   :members:
+   :undoc-members:
+   :show-inheritance:
