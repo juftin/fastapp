@@ -1,0 +1,316 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "ml-server",
+        "description": "Example ML Server with FastAPI",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/ping": {
+            "get": {
+                "summary": "Ping",
+                "description": "Return a Health Response",
+                "operationId": "ping_ping_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PingResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/request": {
+            "post": {
+                "summary": "Request",
+                "description": "Example Post Request with Expected Data",
+                "operationId": "request_request_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RequestBody"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RequestBody"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/most_similar": {
+            "post": {
+                "summary": "Get Most Similar",
+                "description": "Get a Gensim `gensim.most_similar` response",
+                "operationId": "get_most_similar_most_similar_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GensimRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sentiment": {
+            "post": {
+                "summary": "Get Sentiment",
+                "description": "Get a `SentimentIntensityAnalyzer` polarity_scores response",
+                "operationId": "get_sentiment_sentiment_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SentimentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response Get Sentiment Sentiment Post",
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SentimentResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GensimRequest": {
+                "title": "GensimRequest",
+                "type": "object",
+                "properties": {
+                    "positive": {
+                        "title": "Positive",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": []
+                    },
+                    "negative": {
+                        "title": "Negative",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": []
+                    },
+                    "topn": {
+                        "title": "Topn",
+                        "type": "integer",
+                        "default": 10
+                    }
+                },
+                "description": "Data body for requests to the `/most_similar` endpoint"
+            },
+            "HTTPValidationError": {
+                "title": "HTTPValidationError",
+                "type": "object",
+                "properties": {
+                    "detail": {
+                        "title": "Detail",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        }
+                    }
+                }
+            },
+            "PingResponse": {
+                "title": "PingResponse",
+                "required": [
+                    "status",
+                    "timestamp"
+                ],
+                "type": "object",
+                "properties": {
+                    "healthy": {
+                        "title": "Healthy",
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "status": {
+                        "title": "Status",
+                        "type": "integer"
+                    },
+                    "timestamp": {
+                        "title": "Timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "description": "Response returned for the `/ping` endpoint"
+            },
+            "RequestBody": {
+                "title": "RequestBody",
+                "required": [
+                    "example",
+                    "another_example"
+                ],
+                "type": "object",
+                "properties": {
+                    "example": {
+                        "title": "Example",
+                        "type": "integer"
+                    },
+                    "another_example": {
+                        "title": "Another Example",
+                        "type": "string"
+                    }
+                },
+                "description": "Data body for the generic `/request` endpoint"
+            },
+            "SentimentRequest": {
+                "title": "SentimentRequest",
+                "required": [
+                    "text"
+                ],
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "title": "Text",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "description": "Request Format for the `/sentiment` endpoint"
+            },
+            "SentimentResponse": {
+                "title": "SentimentResponse",
+                "required": [
+                    "neg",
+                    "neu",
+                    "pos",
+                    "compound"
+                ],
+                "type": "object",
+                "properties": {
+                    "neg": {
+                        "title": "Neg",
+                        "type": "number"
+                    },
+                    "neu": {
+                        "title": "Neu",
+                        "type": "number"
+                    },
+                    "pos": {
+                        "title": "Pos",
+                        "type": "number"
+                    },
+                    "compound": {
+                        "title": "Compound",
+                        "type": "number"
+                    }
+                },
+                "description": "Response returned from the `/sentiment` endpoint"
+            },
+            "ValidationError": {
+                "title": "ValidationError",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "loc": {
+                        "title": "Location",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "msg": {
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "type": {
+                        "title": "Error Type",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

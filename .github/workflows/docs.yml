@@ -1,0 +1,110 @@
+name: Documentation
+
+on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ "**" ]
+        types: [ opened, reopened, synchronize ]
+
+jobs:
+    github-pages-publish:
+        if:      ${{ github.event_name == 'push' }}
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout Latest Changes
+                uses: actions/checkout@v2
+                with:
+                    path:        main
+                    ref:         ${{ github.ref }}
+                    fetch-depth: 0
+            -   name: Checkout gh-pages Branch
+                uses: actions/checkout@v2
+                with:
+                    path:        github-pages
+                    ref:         gh-pages
+                    fetch-depth: 0
+            -   name: Set up Python Environment
+                uses: actions/setup-python@v2
+                with:
+                    python-version: "3.9"
+            -   name: Install Test Dependencies
+                run:  |
+                      python -m pip install --upgrade pip wheel
+                      python -m pip install tox
+            -   name:              Tox Sphinx Generation
+                working-directory: ./main
+                run:               |
+                                   tox -e sphinx
+            -   name: Setup Git Config
+                run:  |
+                      git config --global user.name "github-actions[bot]"
+                      git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            -   name:              Get Commit SHA from main
+                working-directory: ./main
+                run:               |
+                                   COMMIT_SHA=$(git rev-parse HEAD)
+                                   echo "COMMIT_SHA=${COMMIT_SHA}" >> ${GITHUB_ENV}
+            -   name:              Commit Changes to gh-pages Branch
+                working-directory: ./github-pages
+                run:               |
+                                   git rm -rf . || true
+                                   cp -R ${{ github.workspace }}/main/docs/build/html/* ${PWD}
+                                   touch .nojekyll
+                                   cp ${{ github.workspace }}/main/docs/README.md README.md
+                                   git add .
+                                   git diff-index --quiet HEAD || git commit -m "GitHub Pages - ${{ env.COMMIT_SHA }}"
+                                   git push
+
+    github-pages-test:
+        if:      ${{ github.event_name == 'pull_request' }}
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Set up Github Workspace
+                uses: actions/checkout@v2
+                with:
+                    fetch-depth: 0
+                    ref:         ${{ github.ref }}
+            -   name: Set up Python Environment
+                uses: actions/setup-python@v2
+                with:
+                    python-version: "3.9"
+            -   name: Install Test Dependencies
+                run:  |
+                      python -m pip install --upgrade pip wheel
+                      python -m pip install tox
+            -   name: Tox Sphinx Generation
+                run:  |
+                      tox -e sphinx
+
+    openapi-spec-update:
+        if:      ${{ github.event_name == 'pull_request' }}
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Set up Github Workspace
+                uses: actions/checkout@v2
+                with:
+                    fetch-depth: 0
+                    ref:         ${{ github.ref }}
+                    token:       ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+            -   name: Set up Python Environment
+                uses: actions/setup-python@v2
+                with:
+                    python-version: "3.9"
+            -   name: Install Test Dependencies
+                run:  |
+                      python -m pip install --upgrade pip wheel
+                      python -m pip install tox
+            -   name: Setup Git Config
+                run:  |
+                      git config --global user.name "github-actions[bot]"
+                      git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            -   name: Get Commit SHA from main
+                run:  |
+                      tox -e openapi
+            -   name: Commit Changes
+                uses: EndBug/add-and-commit@v8
+                with:
+                    default_author: github_actions
+                    message:        OpenAPI Spec - ${{ github.ref }}
+                    add:            ml_server/config/openapi.json
