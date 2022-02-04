@@ -2,13 +2,10 @@
 FastAPI Backend
 """
 
-import datetime
-import json
 import logging
-from pathlib import Path
 from typing import List, Union
 
-from fastapi import FastAPI
+from fastapi import APIRouter
 import gensim
 from nltk import download
 from nltk.data import find
@@ -32,33 +29,11 @@ gensim_model = gensim.models.KeyedVectors.load_word2vec_format(word2vec_sample, 
 
 sid = SentimentIntensityAnalyzer()
 
-app = FastAPI(debug=True,
-              title="ml-server",
-              description="Example ML Server with FastAPI",
-              version="0.1.0")
+machine_learning_router = APIRouter(prefix="/ml",
+                                    tags=["machine learning"])
 
 
-@app.get("/ping", response_model=responses.PingResponse)
-async def ping() -> responses.PingResponse:
-    """
-    Return a Health Response
-    """
-    health = True
-    status = 200 if health else 404
-    return responses.PingResponse(healthy=health,
-                                  status=status,
-                                  timestamp=datetime.datetime.utcnow())
-
-
-@app.post("/request", response_model=bodies.RequestBody)
-async def request(body: bodies.RequestBody) -> bodies.RequestBody:
-    """
-    Example Post Request with Expected Data
-    """
-    return body
-
-
-@app.post("/most_similar")
+@machine_learning_router.post("/most_similar")
 def get_most_similar(body: bodies.GensimRequest) -> List[List[Union[str, float]]]:
     """
     Get a Gensim `gensim.most_similar` response
@@ -68,7 +43,7 @@ def get_most_similar(body: bodies.GensimRequest) -> List[List[Union[str, float]]
                                      topn=body.topn)
 
 
-@app.post("/sentiment", response_model=List[responses.SentimentResponse])
+@machine_learning_router.post("/sentiment", response_model=List[responses.SentimentResponse])
 def get_sentiment(text: bodies.SentimentRequest) -> List[responses.SentimentResponse]:
     """
     Get a `SentimentIntensityAnalyzer` polarity_scores response
@@ -82,10 +57,3 @@ def get_sentiment(text: bodies.SentimentRequest) -> List[responses.SentimentResp
         ss = sid.polarity_scores(text=text.text)
         results.append(dict(ss))
     return results
-
-
-if __name__ == "__main__":
-    json_file_path = Path(__file__).resolve().parent.joinpath("config").joinpath("openapi.json")
-    openapi_spec = app.openapi()
-    with open(json_file_path, "w") as json_file:
-        json.dump(openapi_spec, json_file, indent=4)

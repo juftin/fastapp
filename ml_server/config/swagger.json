@@ -3,72 +3,17 @@
     "info": {
         "title": "ml-server",
         "description": "Example ML Server with FastAPI",
-        "version": "0.1.0"
+        "version": "0.1.1"
     },
     "paths": {
-        "/ping": {
-            "get": {
-                "summary": "Ping",
-                "description": "Return a Health Response",
-                "operationId": "ping_ping_get",
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/PingResponse"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/request": {
+        "/ml/most_similar": {
             "post": {
-                "summary": "Request",
-                "description": "Example Post Request with Expected Data",
-                "operationId": "request_request_post",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/RequestBody"
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/RequestBody"
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HTTPValidationError"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/most_similar": {
-            "post": {
+                "tags": [
+                    "machine learning"
+                ],
                 "summary": "Get Most Similar",
                 "description": "Get a Gensim `gensim.most_similar` response",
-                "operationId": "get_most_similar_most_similar_post",
+                "operationId": "get_most_similar_ml_most_similar_post",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -101,11 +46,14 @@
                 }
             }
         },
-        "/sentiment": {
+        "/ml/sentiment": {
             "post": {
+                "tags": [
+                    "machine learning"
+                ],
                 "summary": "Get Sentiment",
                 "description": "Get a `SentimentIntensityAnalyzer` polarity_scores response",
-                "operationId": "get_sentiment_sentiment_post",
+                "operationId": "get_sentiment_ml_sentiment_post",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -122,11 +70,75 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "title": "Response Get Sentiment Sentiment Post",
+                                    "title": "Response Get Sentiment Ml Sentiment Post",
                                     "type": "array",
                                     "items": {
                                         "$ref": "#/components/schemas/SentimentResponse"
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ping": {
+            "get": {
+                "tags": [
+                    "utilities"
+                ],
+                "summary": "Ping",
+                "description": "Return a Health Response",
+                "operationId": "ping_ping_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PingResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/request": {
+            "post": {
+                "tags": [
+                    "utilities"
+                ],
+                "summary": "Request",
+                "description": "Example Post Request with Expected Data",
+                "operationId": "request_request_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RequestBody"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RequestBody"
                                 }
                             }
                         }
@@ -312,5 +324,10 @@
                 }
             }
         }
-    }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080/"
+        }
+    ]
 }
