@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ml-server &mdash; ml-server 0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/autodoc_pydantic.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/autoclasstoc.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ml-server CLI" href="cli.html" />
+    <link rel="prev" title="ml-server" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ml-server
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">README</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#directory-structure">Directory Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#local-usage">Local Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#building-the-docker-image-locally">Building the Docker Image Locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serving-the-model-locally">Serving the Model Locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-locally">Testing Locally</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#health-check">Health Check</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ml-server</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>ml-server</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/readme.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ml-server">
+<h1>ml-server<a class="headerlink" href="#ml-server" title="Permalink to this headline"></a></h1>
+<section id="directory-structure">
+<h2>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>├── ml_server                   Docker Container Source Code
+│   ├── app.py                  FastAPI App Configuration
+│   ├── nginx.conf              Nginx Configuration File
+│   └── serve.py                API Serving Script
+├── Dockerfile                  Dockerfile for Project
+├── requirements.txt            Project Dependencies
+├── docker_entrypoint.sh        Docker Entrypoint file
+├── VERSION                     Project Version (and Docker image tag)
+├── README.md                   This documentation file :)
+</pre></div>
+</div>
+</section>
+<section id="local-usage">
+<h2>Local Usage<a class="headerlink" href="#local-usage" title="Permalink to this headline"></a></h2>
+<section id="building-the-docker-image-locally">
+<h3>Building the Docker Image Locally<a class="headerlink" href="#building-the-docker-image-locally" title="Permalink to this headline"></a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker build <span class="se">\</span>
+    --tag juftin/ml-server:latest <span class="se">\</span>
+    .
+</pre></div>
+</div>
+</section>
+<section id="serving-the-model-locally">
+<h3>Serving the Model Locally<a class="headerlink" href="#serving-the-model-locally" title="Permalink to this headline"></a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run --rm -it <span class="se">\</span>
+    --publish <span class="m">8080</span>:8080 <span class="se">\</span>
+    --volume <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/ml_server:/root/ml_server <span class="se">\</span>
+    juftin/ml-server:latest <span class="se">\</span>
+    serve-debug
+</pre></div>
+</div>
+</section>
+<section id="testing-locally">
+<h3>Testing Locally<a class="headerlink" href="#testing-locally" title="Permalink to this headline"></a></h3>
+<section id="health-check">
+<h4>Health Check<a class="headerlink" href="#health-check" title="Permalink to this headline"></a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl <span class="se">\</span>
+  --request GET <span class="se">\</span>
+  --silent <span class="se">\</span>
+  --header <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+  http://localhost:8080/ping <span class="se">\</span>
+  <span class="p">|</span> jq
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="ml-server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cli.html" class="btn btn-neutral float-right" title="ml-server CLI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Justin Flannery.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

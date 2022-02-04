@@ -1,0 +1,45 @@
+ml\_server package
+==================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   ml_server.models
+
+Submodules
+----------
+
+ml\_server.app module
+---------------------
+
+.. automodule:: ml_server.app
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ml\_server.cli module
+---------------------
+
+.. automodule:: ml_server.cli
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ml\_server.serve module
+-----------------------
+
+.. automodule:: ml_server.serve
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: ml_server
+   :members:
+   :undoc-members:
+   :show-inheritance:
