@@ -6,6 +6,7 @@ ml-server
 
    README <readme.rst>
    CLI Documentation <cli.rst>
+   REST API Documentation <redoc.rst>
    API Documentation <api/modules.rst>
 
 
