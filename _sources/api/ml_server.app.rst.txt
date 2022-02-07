@@ -12,6 +12,14 @@ ml\_server.app.asgi module
    :undoc-members:
    :show-inheritance:
 
+ml\_server.app.base module
+--------------------------
+
+.. automodule:: ml_server.app.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 ml\_server.app.machine\_learning module
 ---------------------------------------
 

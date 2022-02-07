@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml_server.app package &mdash; ml-server 0.1.1 documentation</title>
+  <title>ml_server.app package &mdash; ml-server 0.1.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/autodoc_pydantic.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ml_server.models package" href="ml_server.models.html" />
+    <link rel="next" title="ml_server.config package" href="ml_server.config.html" />
     <link rel="prev" title="ml_server package" href="ml_server.html" /> 
 </head>
 
@@ -50,12 +50,14 @@
 <li class="toctree-l2 current"><a class="reference internal" href="ml_server.html">ml_server package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="ml_server.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">ml_server.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ml_server.config.html">ml_server.config package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ml_server.models.html">ml_server.models package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ml_server.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml_server.html#module-ml_server.cli">ml_server.cli module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml_server.html#module-ml_server.serve">ml_server.serve module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ml_server.html#module-ml_server.utils">ml_server.utils module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml_server.html#module-ml_server">Module contents</a></li>
 </ul>
 </li>
@@ -98,6 +100,24 @@
 <span id="ml-server-app-asgi-module"></span><h2>ml_server.app.asgi module<a class="headerlink" href="#module-ml_server.app.asgi" title="Permalink to this headline"></a></h2>
 <p>ml-server FastAPI App</p>
 </section>
+<section id="module-ml_server.app.base">
+<span id="ml-server-app-base-module"></span><h2>ml_server.app.base module<a class="headerlink" href="#module-ml_server.app.base" title="Permalink to this headline"></a></h2>
+<p>Inheritance and Wrapper Classes for MLServer</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ml_server.app.base.MLServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.app.base.</span></span><span class="sig-name descname"><span class="pre">MLServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ml-server'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Example</span> <span class="pre">ML</span> <span class="pre">Server</span> <span class="pre">with</span> <span class="pre">FastAPI'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'0.1.2'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><span class="pre">Any</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ml_server/app/base.html#MLServer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.app.base.MLServer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">fastapi.applications.FastAPI</span></code></p>
+<p>MLServer FastAPI Class</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ml_server.app.base.MLServerRouter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.app.base.</span></span><span class="sig-name descname"><span class="pre">MLServerRouter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*,</span> <span class="pre">prefix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">tags:</span> <span class="pre">typing.Optional[typing.List[typing.Union[str,</span> <span class="pre">enum.Enum]]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">dependencies:</span> <span class="pre">typing.Optional[typing.Sequence[fastapi.params.Depends]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">default_response_class:</span> <span class="pre">typing.Type[starlette.responses.Response]</span> <span class="pre">=</span> <span class="pre">&lt;fastapi.datastructures.DefaultPlaceholder</span> <span class="pre">object&gt;,</span> <span class="pre">responses:</span> <span class="pre">typing.Optional[typing.Dict[typing.Union[int,</span> <span class="pre">str],</span> <span class="pre">typing.Dict[str,</span> <span class="pre">typing.Any]]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">callbacks:</span> <span class="pre">typing.Optional[typing.List[starlette.routing.BaseRoute]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">routes:</span> <span class="pre">typing.Optional[typing.List[starlette.routing.BaseRoute]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">redirect_slashes:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">default:</span> <span class="pre">typing.Optional[typing.Callable[[typing.MutableMapping[str,</span> <span class="pre">typing.Any],</span> <span class="pre">typing.Callable[[],</span> <span class="pre">typing.Awaitable[typing.MutableMapping[str,</span> <span class="pre">typing.Any]]],</span> <span class="pre">typing.Callable[[typing.MutableMapping[str,</span> <span class="pre">typing.Any]],</span> <span class="pre">typing.Awaitable[None]]],</span> <span class="pre">typing.Awaitable[None]]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">dependency_overrides_provider:</span> <span class="pre">typing.Optional[typing.Any]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">route_class:</span> <span class="pre">typing.Type[fastapi.routing.APIRoute]</span> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'fastapi.routing.APIRoute'&gt;,</span> <span class="pre">on_startup:</span> <span class="pre">typing.Optional[typing.Sequence[typing.Callable[[],</span> <span class="pre">typing.Any]]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">on_shutdown:</span> <span class="pre">typing.Optional[typing.Sequence[typing.Callable[[],</span> <span class="pre">typing.Any]]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">deprecated:</span> <span class="pre">typing.Optional[bool]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">include_in_schema:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ml_server/app/base.html#MLServerRouter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.app.base.MLServerRouter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">fastapi.routing.APIRouter</span></code></p>
+<p>Base API Router Class for MLServer</p>
+</dd></dl>
+
+</section>
 <section id="module-ml_server.app.machine_learning">
 <span id="ml-server-app-machine-learning-module"></span><h2>ml_server.app.machine_learning module<a class="headerlink" href="#module-ml_server.app.machine_learning" title="Permalink to this headline"></a></h2>
 <p>FastAPI Backend</p>
@@ -117,6 +137,12 @@
 <section id="module-ml_server.app.utils">
 <span id="ml-server-app-utils-module"></span><h2>ml_server.app.utils module<a class="headerlink" href="#module-ml_server.app.utils" title="Permalink to this headline"></a></h2>
 <p>FastAPI Backend</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ml_server.app.utils.index">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.app.utils.</span></span><span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">starlette.responses.FileResponse</span></span></span><a class="reference internal" href="../_modules/ml_server/app/utils.html#index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.app.utils.index" title="Permalink to this definition"></a></dt>
+<dd><p>Load the Homepage</p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="ml_server.app.utils.ping">
 <em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.app.utils.</span></span><span class="sig-name descname"><span class="pre">ping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ml_server.models.html#ml_server.models.responses.PingResponse" title="ml_server.models.responses.PingResponse"><span class="pre">ml_server.models.responses.PingResponse</span></a></span></span><a class="reference internal" href="../_modules/ml_server/app/utils.html#ping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.app.utils.ping" title="Permalink to this definition"></a></dt>
@@ -141,7 +167,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ml_server.html" class="btn btn-neutral float-left" title="ml_server package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ml_server.models.html" class="btn btn-neutral float-right" title="ml_server.models package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ml_server.config.html" class="btn btn-neutral float-right" title="ml_server.config package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

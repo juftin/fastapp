@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    ml_server.app
+   ml_server.config
    ml_server.models
 
 Submodules
@@ -25,6 +26,14 @@ ml\_server.serve module
 -----------------------
 
 .. automodule:: ml_server.serve
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ml\_server.utils module
+-----------------------
+
+.. automodule:: ml_server.utils
    :members:
    :undoc-members:
    :show-inheritance:

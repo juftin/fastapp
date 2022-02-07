@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml_server package &mdash; ml-server 0.1.1 documentation</title>
+  <title>ml_server package &mdash; ml-server 0.1.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/autodoc_pydantic.css" type="text/css" />
@@ -50,12 +50,14 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ml_server package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="ml_server.app.html">ml_server.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ml_server.config.html">ml_server.config package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ml_server.models.html">ml_server.models package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ml_server.cli">ml_server.cli module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ml_server.serve">ml_server.serve module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ml_server.utils">ml_server.utils module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ml_server">Module contents</a></li>
 </ul>
 </li>
@@ -97,9 +99,16 @@
 <li class="toctree-l1"><a class="reference internal" href="ml_server.app.html">ml_server.app package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ml_server.app.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ml_server.app.html#module-ml_server.app.asgi">ml_server.app.asgi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_server.app.html#module-ml_server.app.base">ml_server.app.base module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ml_server.app.html#module-ml_server.app.machine_learning">ml_server.app.machine_learning module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ml_server.app.html#module-ml_server.app.utils">ml_server.app.utils module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ml_server.app.html#module-ml_server.app">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ml_server.config.html">ml_server.config package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ml_server.config.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_server.config.html#module-ml_server.config.gunicorn_config">ml_server.config.gunicorn_config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_server.config.html#module-ml_server.config">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ml_server.models.html">ml_server.models package</a><ul>
@@ -138,7 +147,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ml_server.serve.start_server">
-<span class="sig-prename descclassname"><span class="pre">ml_server.serve.</span></span><span class="sig-name descname"><span class="pre">start_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nginx_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/ml_server/serve.html#start_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.serve.start_server" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ml_server.serve.</span></span><span class="sig-name descname"><span class="pre">start_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asgi_app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nginx_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/ml_server/serve.html#start_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.serve.start_server" title="Permalink to this definition"></a></dt>
 <dd><p>Start the Nginx and Gunicorn Proceses</p>
 <p>The Gunicorn process uses the uvicorn.workers.UvicornWorker worker
 and binds itself to the Gunicorn .sock which is picked up by Nginx.
@@ -155,14 +164,13 @@ you. More info at <a class="reference external" href="https://github.com/tiangol
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ml_server.serve.start_server_debug">
-<span class="sig-prename descclassname"><span class="pre">ml_server.serve.</span></span><span class="sig-name descname"><span class="pre">start_server_debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ml_server.app:app'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'0.0.0.0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8080</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reload</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/ml_server/serve.html#start_server_debug"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.serve.start_server_debug" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ml_server.serve.</span></span><span class="sig-name descname"><span class="pre">start_server_debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'0.0.0.0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8080</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reload</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/ml_server/serve.html#start_server_debug"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.serve.start_server_debug" title="Permalink to this definition"></a></dt>
 <dd><p>Start the Uvicorn Development Server</p>
 <p>This server also has live loading</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>app</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – FastAPI Object Reference
-<div class="default-value-section"> <span class="default-value-label">Default:</span> <code class="code docutils literal notranslate"><span class="pre">'ml_server.app:app'</span></code></p></li>
+<li><p><strong>app</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – FastAPI Object Reference</p></li>
 <li><p><strong>host</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – API Host, defaults to “0.0.0.0”
 <div class="default-value-section"> <span class="default-value-label">Default:</span> <code class="code docutils literal notranslate"><span class="pre">'0.0.0.0'</span></code></p></li>
 <li><p><strong>port</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – API Port
@@ -179,12 +187,63 @@ resources.
 </dd></dl>
 
 </section>
+<section id="module-ml_server.utils">
+<span id="ml-server-utils-module"></span><h2>ml_server.utils module<a class="headerlink" href="#module-ml_server.utils" title="Permalink to this headline"></a></h2>
+<p>ml-server Utilities and Helpers</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ml_server.utils.FilePaths">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.utils.</span></span><span class="sig-name descname"><span class="pre">FilePaths</span></span><a class="reference internal" href="../_modules/ml_server/utils.html#FilePaths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.utils.FilePaths" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>File Path Namespace</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ml_server.utils.FilePaths.APP_DIR">
+<span class="sig-name descname"><span class="pre">APP_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">PosixPath('/home/runner/work/ml-server/ml-server/main/ml_server/app')</span></em><a class="headerlink" href="#ml_server.utils.FilePaths.APP_DIR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ml_server.utils.FilePaths.CONFIG_DIR">
+<span class="sig-name descname"><span class="pre">CONFIG_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">PosixPath('/home/runner/work/ml-server/ml-server/main/ml_server/config')</span></em><a class="headerlink" href="#ml_server.utils.FilePaths.CONFIG_DIR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ml_server.utils.FilePaths.GUNICORN_CONFIG_FILE">
+<span class="sig-name descname"><span class="pre">GUNICORN_CONFIG_FILE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/home/runner/work/ml-server/ml-server/main/ml_server/config/gunicorn_config.py'</span></em><a class="headerlink" href="#ml_server.utils.FilePaths.GUNICORN_CONFIG_FILE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ml_server.utils.FilePaths.GUNICORN_LOGGING_CONFIG_FILE">
+<span class="sig-name descname"><span class="pre">GUNICORN_LOGGING_CONFIG_FILE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/home/runner/work/ml-server/ml-server/main/ml_server/config/logging_config.yaml'</span></em><a class="headerlink" href="#ml_server.utils.FilePaths.GUNICORN_LOGGING_CONFIG_FILE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ml_server.utils.FilePaths.ML_SERVER_DIR">
+<span class="sig-name descname"><span class="pre">ML_SERVER_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">PosixPath('/home/runner/work/ml-server/ml-server/main/ml_server')</span></em><a class="headerlink" href="#ml_server.utils.FilePaths.ML_SERVER_DIR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ml_server.utils.FilePaths.NGINX_CONFIG_FILE">
+<span class="sig-name descname"><span class="pre">NGINX_CONFIG_FILE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/home/runner/work/ml-server/ml-server/main/ml_server/config/nginx.conf'</span></em><a class="headerlink" href="#ml_server.utils.FilePaths.NGINX_CONFIG_FILE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ml_server.utils.FilePaths.PROJECT_DIR">
+<span class="sig-name descname"><span class="pre">PROJECT_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">PosixPath('/home/runner/work/ml-server/ml-server/main')</span></em><a class="headerlink" href="#ml_server.utils.FilePaths.PROJECT_DIR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ml_server.utils.FilePaths.STATIC_DIR">
+<span class="sig-name descname"><span class="pre">STATIC_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">PosixPath('/home/runner/work/ml-server/ml-server/main/ml_server/app/static')</span></em><a class="headerlink" href="#ml_server.utils.FilePaths.STATIC_DIR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-ml_server">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ml_server" title="Permalink to this headline"></a></h2>
 <p>ml-server</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="ml_server.start_server">
-<span class="sig-prename descclassname"><span class="pre">ml_server.</span></span><span class="sig-name descname"><span class="pre">start_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nginx_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/ml_server/serve.html#start_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.start_server" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ml_server.</span></span><span class="sig-name descname"><span class="pre">start_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asgi_app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nginx_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/ml_server/serve.html#start_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.start_server" title="Permalink to this definition"></a></dt>
 <dd><p>Start the Nginx and Gunicorn Proceses</p>
 <p>The Gunicorn process uses the uvicorn.workers.UvicornWorker worker
 and binds itself to the Gunicorn .sock which is picked up by Nginx.
