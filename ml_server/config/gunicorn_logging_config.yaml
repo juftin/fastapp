@@ -1,5 +1,5 @@
 version:                  1
-disable_existing_loggers: false
+disable_existing_loggers: true
 
 formatters:
 
@@ -17,54 +17,41 @@ handlers:
         level:     INFO
         formatter: default
         class:     logging.StreamHandler
-        stream:    ext://sys.stderr
-
-    access:
-        level:     INFO
-        formatter: access
-        class:     logging.StreamHandler
         stream:    ext://sys.stdout
 
 loggers:
 
-    uvicorn.access:
-        handlers:
-            - access
+    uvicorn:
         level:     INFO
-        propogate: false
+        propogate: true
+        handlers:
+            - default
+
+    uvicorn.access:
+        level:     INFO
+        propogate: true
+        handlers:
+            - default
 
     uvicorn.error:
+        level:     INFO
+        propogate: true
         handlers:
             - default
-        level:     INFO
-        propogate: false
 
     gunicorn.access:
-        handlers:
-            - access
         level:     INFO
-        propogate: false
+        propogate: true
+        handlers:
+            - default
 
     gunicorn.error:
-        handlers:
-            - default
         level:     INFO
-        propogate: false
-
-    gensim:
-        level:     WARNING
+        propogate: true
         handlers:
             - default
-        propagate: false
-
-    ml_server:
-        level:     INFO
-        handlers:
-            - default
-        propagate: false
 
 root:
-    level:     INFO
+    level: INFO
     handlers:
         - default
-    propogate: false

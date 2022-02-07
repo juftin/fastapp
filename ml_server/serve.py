@@ -16,7 +16,8 @@ import uvicorn
 
 from ml_server._version import __asgi__
 from ml_server.config import gunicorn_config
-from ml_server.utils import GUNICORN_CONFIG_FILE, LOGGING_CONFIG, NGINX_CONFIG_FILE
+from ml_server.utils import (FilePaths,
+                             UVICORN_LOGGING_CONFIG)
 
 logger = logging.getLogger(__name__)
 
@@ -67,11 +68,12 @@ def start_server_debug(app: str,
     -------
     None
     """
+    logger.info("Starting Up Debug/Development Server")
     uvicorn.run(app,
                 host=host,
                 port=port,
                 reload=reload,
-                log_config=LOGGING_CONFIG
+                log_config=UVICORN_LOGGING_CONFIG
                 )
 
 
@@ -95,13 +97,13 @@ def start_server(asgi_app: str, nginx_config: Union[str, pathlib.Path] = None) -
     logger.info("Starting the server with %s workers.", gunicorn_config.workers)
 
     if nginx_config is None:
-        nginx_config = NGINX_CONFIG_FILE
+        nginx_config = FilePaths.NGINX_CONFIG_FILE
     nginx = subprocess.Popen(["nginx",
                               "-c", nginx_config
                               ])
     gunicorn = subprocess.Popen([
         "gunicorn",
-        "--config", GUNICORN_CONFIG_FILE,
+        "--config", FilePaths.GUNICORN_CONFIG_FILE,
         asgi_app
     ])
     signal.signal(signal.SIGTERM, lambda a, b: sigterm_handler([nginx.pid, gunicorn.pid]))

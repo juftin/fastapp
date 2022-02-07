@@ -9,7 +9,7 @@ from fastapi.responses import FileResponse, HTMLResponse
 
 from ml_server.app.base import MLServerRouter
 from ml_server.models import bodies, responses
-from ml_server.utils import STATIC_DIR
+from ml_server.utils import FilePaths
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +21,7 @@ async def index() -> FileResponse:
     """
     Load the Homepage
     """
-    return FileResponse(STATIC_DIR.joinpath("index.html"),
+    return FileResponse(FilePaths.STATIC_DIR.joinpath("index.html"),
                         status_code=200,
                         media_type=HTMLResponse.media_type)
 

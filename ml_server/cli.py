@@ -3,15 +3,21 @@ ml-server CLI
 """
 
 import logging.config
+import sys
 from typing import Optional
 
 import click
 
 from ml_server._version import __asgi__, __ml_server__
 from ml_server.serve import start_server, start_server_debug
-from ml_server.utils import LOGGING_CONFIG
 
-logging.config.dictConfig(LOGGING_CONFIG)
+root_logger = logging.getLogger()
+formatter = logging.Formatter("%(asctime)s [%(levelname)8s] %(name)s: %(message)s")
+handler = logging.StreamHandler(stream=sys.stdout)
+handler.setFormatter(formatter)
+root_logger.setLevel(logging.INFO)
+root_logger.addHandler(handler)
+
 logger = logging.getLogger(__name__)
 
 ml_server_reference = click.option(
@@ -51,7 +57,6 @@ def serve_debug(ctx: click.core.Context,
     """
     Run Uvicorn Debug/Development Server
     """
-    logger.info("Starting Up Debug/Development Server")
     start_server_debug(app=asgi_app)
     return ctx
 

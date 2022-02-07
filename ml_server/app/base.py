@@ -1,16 +1,15 @@
 """
 Inheritance and Wrapper Classes for MLServer
 """
+from typing import Any
 
 from fastapi import APIRouter, FastAPI
 from fastapi.templating import Jinja2Templates
 
-Jinja2Templates
-
 from ml_server._version import __ml_server__, __version__
-from ml_server.utils import ML_SERVER_DIR
+from ml_server.utils import FilePaths
 
-templates = Jinja2Templates(directory=ML_SERVER_DIR.joinpath("templates"))
+templates = Jinja2Templates(directory=FilePaths.ML_SERVER_DIR.joinpath("templates"))
 
 
 class MLServerRouter(APIRouter):
@@ -29,7 +28,7 @@ class MLServer(FastAPI):
                  title: str = __ml_server__,
                  description: str = "Example ML Server with FastAPI",
                  version: str = __version__,
-                 **kwargs):
+                 **kwargs: Any):
         """
         Initialize A FastAPI Object
 

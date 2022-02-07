@@ -5,7 +5,7 @@ Gunicorn Configuration File
 import multiprocessing
 import os
 
-from ml_server.utils import LOGGING_CONFIG
+from ml_server.utils import GUNICORN_LOGGING_CONFIG
 
 cpu_count = multiprocessing.cpu_count()
 
@@ -15,5 +15,4 @@ bind = os.environ.get("GUNICORN_BIND", "unix:/tmp/gunicorn.sock")
 
 worker_class = os.environ.get("GUNCORN_WORKER_CLASS", "uvicorn.workers.UvicornWorker")
 
-logconfig_dict = LOGGING_CONFIG
-syslog = True
+logconfig_dict = GUNICORN_LOGGING_CONFIG

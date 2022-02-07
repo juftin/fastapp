@@ -9,10 +9,10 @@ from fastapi.staticfiles import StaticFiles
 from ml_server.app.base import MLServer, MLServerRouter
 from ml_server.app.machine_learning import machine_learning_router
 from ml_server.app.utils import utils_router
-from ml_server.utils import CONFIG_DIR, ML_SERVER_DIR
+from ml_server.utils import FilePaths
 
 app = MLServer()
-_static_dir = ML_SERVER_DIR.joinpath("app", "static")
+_static_dir = FilePaths.APP_DIR.joinpath("static")
 app.mount("/static", StaticFiles(directory=_static_dir), name="static")
 
 router: MLServerRouter
@@ -23,7 +23,7 @@ for router in [
     app.include_router(router=router)
 
 if __name__ == "__main__":
-    json_file_path = CONFIG_DIR.joinpath("swagger.json")
+    json_file_path = FilePaths.CONFIG_DIR.joinpath("swagger.json")
     openapi_spec = app.openapi()
     openapi_spec["servers"] = [
         dict(url="http://localhost:8080/")
