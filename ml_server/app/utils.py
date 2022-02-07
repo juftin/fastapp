@@ -5,13 +5,25 @@ FastAPI Backend
 import datetime
 import logging
 
-from fastapi import APIRouter
+from fastapi.responses import FileResponse, HTMLResponse
 
+from ml_server.app.base import MLServerRouter
 from ml_server.models import bodies, responses
+from ml_server.utils import FilePaths
 
 logger = logging.getLogger(__name__)
 
-utils_router = APIRouter(tags=["utilities"])
+utils_router = MLServerRouter(tags=["utilities"])
+
+
+@utils_router.get("/", include_in_schema=False)
+async def index() -> FileResponse:
+    """
+    Load the Homepage
+    """
+    return FileResponse(FilePaths.STATIC_DIR.joinpath("index.html"),
+                        status_code=200,
+                        media_type=HTMLResponse.media_type)
 
 
 @utils_router.get("/ping", response_model=responses.PingResponse)

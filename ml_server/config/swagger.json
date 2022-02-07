@@ -3,7 +3,7 @@
     "info": {
         "title": "ml-server",
         "description": "Example ML Server with FastAPI",
-        "version": "0.1.1"
+        "version": "0.1.2"
     },
     "paths": {
         "/ml/most_similar": {

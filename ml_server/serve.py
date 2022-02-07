@@ -5,7 +5,6 @@ Uvicorn x Gunicorn x Nginx x FastAPI Configuration
 """
 
 import logging
-import multiprocessing
 import os
 import pathlib
 import signal
@@ -14,6 +13,11 @@ import sys
 from typing import List, Union
 
 import uvicorn
+
+from ml_server._version import __asgi__
+from ml_server.config import gunicorn_config
+from ml_server.utils import (FilePaths,
+                             UVICORN_LOGGING_CONFIG)
 
 logger = logging.getLogger(__name__)
 
@@ -39,7 +43,7 @@ def sigterm_handler(pids: List[int]) -> None:
     sys.exit(0)
 
 
-def start_server_debug(app: str = "ml_server.app:app",
+def start_server_debug(app: str,
                        host: str = "0.0.0.0",
                        port: int = 8080,
                        reload: bool = True) -> None:
@@ -64,10 +68,16 @@ def start_server_debug(app: str = "ml_server.app:app",
     -------
     None
     """
-    uvicorn.run(app, host=host, port=port, reload=reload)
+    logger.info("Starting Up Debug/Development Server")
+    uvicorn.run(app,
+                host=host,
+                port=port,
+                reload=reload,
+                log_config=UVICORN_LOGGING_CONFIG
+                )
 
 
-def start_server(nginx_config: Union[str, pathlib.Path] = None) -> None:
+def start_server(asgi_app: str, nginx_config: Union[str, pathlib.Path] = None) -> None:
     """
     Start the Nginx and Gunicorn Proceses
 
@@ -83,24 +93,18 @@ def start_server(nginx_config: Union[str, pathlib.Path] = None) -> None:
     -------
     None
     """
-    cpu_count = multiprocessing.cpu_count()
-    model_server_timeout = os.environ.get("MODEL_SERVER_TIMEOUT", 60)
-    model_server_workers = int(os.environ.get("MODEL_SERVER_WORKERS", cpu_count))
-
-    logger.info("Starting the server with %s workers.", model_server_workers)
+    logger.info("Starting Up Production Server: %s", asgi_app)
+    logger.info("Starting the server with %s workers.", gunicorn_config.workers)
 
     if nginx_config is None:
-        nginx_config = pathlib.Path(__file__).resolve().parent.joinpath("config/nginx.conf")
+        nginx_config = FilePaths.NGINX_CONFIG_FILE
     nginx = subprocess.Popen(["nginx",
-                              "-c", str(nginx_config)
+                              "-c", nginx_config
                               ])
     gunicorn = subprocess.Popen([
         "gunicorn",
-        "--timeout", str(model_server_timeout),
-        "--worker-class", "uvicorn.workers.UvicornWorker",
-        "--bind", "unix:/tmp/gunicorn.sock",
-        "--workers", str(model_server_workers),
-        "ml_server.app:app"
+        "--config", FilePaths.GUNICORN_CONFIG_FILE,
+        asgi_app
     ])
     signal.signal(signal.SIGTERM, lambda a, b: sigterm_handler([nginx.pid, gunicorn.pid]))
     process_pids = {nginx.pid, gunicorn.pid}
@@ -113,6 +117,4 @@ def start_server(nginx_config: Union[str, pathlib.Path] = None) -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO,
-                        format="%(asctime)s [%(levelname)8s]: %(message)s [%(name)s]")
-    start_server()
+    start_server(asgi_app=__asgi__)
