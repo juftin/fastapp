@@ -21,8 +21,7 @@ class FilePaths:
     STATIC_DIR = APP_DIR.joinpath("static")
 
     GUNICORN_CONFIG_FILE = str(CONFIG_DIR.joinpath("gunicorn_config.py"))
-    UVICORN_LOGGING_CONFIG_FILE = str(CONFIG_DIR.joinpath("uvicorn_logging_config.yaml"))
-    GUNICORN_LOGGING_CONFIG_FILE = str(CONFIG_DIR.joinpath("gunicorn_logging_config.yaml"))
+    GUNICORN_LOGGING_CONFIG_FILE = str(CONFIG_DIR.joinpath("logging_config.yaml"))
     NGINX_CONFIG_FILE = str(CONFIG_DIR.joinpath("nginx.conf"))
 
 

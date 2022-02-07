@@ -31,7 +31,7 @@ loggers:
         level:     INFO
         propogate: true
         handlers:
-            - default
+            - access
 
     uvicorn.error:
         level:     INFO
