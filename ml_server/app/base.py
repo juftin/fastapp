@@ -9,7 +9,7 @@ from fastapi.templating import Jinja2Templates
 from ml_server._version import __ml_server__, __version__
 from ml_server.utils import FilePaths
 
-templates = Jinja2Templates(directory=FilePaths.ML_SERVER_DIR.joinpath("templates"))
+templates = Jinja2Templates(directory=FilePaths.APP_DIR.joinpath("templates"))
 
 
 class MLServerRouter(APIRouter):
