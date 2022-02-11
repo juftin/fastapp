@@ -20,9 +20,7 @@ root_logger.addHandler(handler)
 
 logger = logging.getLogger(__name__)
 
-ml_server_reference = click.option(
-    "--asgi-app", default=__asgi__,
-    help="ASGI App Path - Defaults to MLServer Built-In (ml_server.app.app)")
+ml_server_app = click.argument("app", default=__asgi__)
 
 
 @click.group()
@@ -36,28 +34,33 @@ def cli(ctx: click.core.Context) -> None:
 
 
 @cli.command()
+@ml_server_app
 @click.pass_context
 @click.option("--nginx-config", default=None,
-              help="Nginx Configuration File - Defaults to MLServer Built-In")
-@ml_server_reference
-def serve(ctx: click.core.Context, nginx_config: Optional[str] = None,
-          asgi_app: str = __asgi__) -> click.core.Context:
+              help="Path to Custom Nginx Configuration File")
+def serve(ctx: click.core.Context, app: str,
+          nginx_config: Optional[str] = None) -> click.core.Context:
     """
     Run Nginx and Gunicorn (with the UvicornWorker)
+
+    Pass the python path of the
+    app to run. Defaults to `ml_server:app`
     """
-    start_server(asgi_app=asgi_app, nginx_config=nginx_config)
+    start_server(asgi_app=app, nginx_config=nginx_config)
     return ctx
 
 
 @cli.command()
+@ml_server_app
 @click.pass_context
-@ml_server_reference
-def serve_debug(ctx: click.core.Context,
-                asgi_app: str = __asgi__) -> click.core.Context:
+def serve_debug(ctx: click.core.Context, app: str) -> click.core.Context:
     """
-    Run Uvicorn Debug/Development Server
+    Run Uvicorn Debug/Development Server.
+
+    Pass the python path of the
+    app to run. Defaults to `ml_server:app`
     """
-    start_server_debug(app=asgi_app)
+    start_server_debug(app=app)
     return ctx
 
 

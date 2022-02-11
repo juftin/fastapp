@@ -6,6 +6,70 @@
         "version": "0.1.2"
     },
     "paths": {
+        "/ping": {
+            "get": {
+                "tags": [
+                    "ml-server"
+                ],
+                "summary": "Ping",
+                "description": "Return a Health Response",
+                "operationId": "ping_ping_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PingResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/request": {
+            "post": {
+                "tags": [
+                    "utilities"
+                ],
+                "summary": "Generic Request",
+                "description": "Example Post Request with Expected Data",
+                "operationId": "generic_request_request_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RequestBody"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RequestBody"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/ml/most_similar": {
             "post": {
                 "tags": [
@@ -75,70 +139,6 @@
                                     "items": {
                                         "$ref": "#/components/schemas/SentimentResponse"
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HTTPValidationError"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/ping": {
-            "get": {
-                "tags": [
-                    "utilities"
-                ],
-                "summary": "Ping",
-                "description": "Return a Health Response",
-                "operationId": "ping_ping_get",
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/PingResponse"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/request": {
-            "post": {
-                "tags": [
-                    "utilities"
-                ],
-                "summary": "Request",
-                "description": "Example Post Request with Expected Data",
-                "operationId": "request_request_post",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/RequestBody"
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/RequestBody"
                                 }
                             }
                         }

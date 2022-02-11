@@ -14,10 +14,10 @@ from typing import List, Union
 
 import uvicorn
 
+from ml_server._utils import (FilePaths,
+                              UVICORN_LOGGING_CONFIG)
 from ml_server._version import __asgi__
 from ml_server.config import gunicorn_config
-from ml_server.utils import (FilePaths,
-                             UVICORN_LOGGING_CONFIG)
 
 logger = logging.getLogger(__name__)
 
@@ -68,7 +68,7 @@ def start_server_debug(app: str,
     -------
     None
     """
-    logger.info("Starting Up Debug/Development Server")
+    logger.info(f"Starting Up Debug/Development Server: {app}")
     uvicorn.run(app,
                 host=host,
                 port=port,
