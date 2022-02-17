@@ -5,7 +5,7 @@ Gunicorn Configuration File
 import multiprocessing
 import os
 
-from ml_server.utils import GUNICORN_LOGGING_CONFIG
+from ml_server._utils import GUNICORN_LOGGING_CONFIG
 
 cpu_count = multiprocessing.cpu_count()
 

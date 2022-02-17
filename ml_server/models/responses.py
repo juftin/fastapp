@@ -4,10 +4,10 @@ API Response Objects
 
 import datetime
 
-from pydantic import BaseModel
+from ml_server.models import MLServerModel
 
 
-class PingResponse(BaseModel):
+class PingResponse(MLServerModel):
     """
     Response returned for the `/ping` endpoint
     """
@@ -17,7 +17,7 @@ class PingResponse(BaseModel):
     timestamp: datetime.datetime
 
 
-class SentimentResponse(BaseModel):
+class SentimentResponse(MLServerModel):
     """
     Response returned from the `/sentiment` endpoint
     """

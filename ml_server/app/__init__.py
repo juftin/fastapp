@@ -2,8 +2,10 @@
 ml-server FastAPI App
 """
 
-from .asgi import app
+from .base import app, MLServer, MLServerRouter
 
 __all__ = [
     "app",
+    "MLServer",
+    "MLServerRouter",
 ]

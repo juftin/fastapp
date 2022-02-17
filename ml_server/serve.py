@@ -12,12 +12,9 @@ import subprocess
 import sys
 from typing import List, Union
 
-import uvicorn
-
+from ml_server._utils import FilePaths
 from ml_server._version import __asgi__
 from ml_server.config import gunicorn_config
-from ml_server.utils import (FilePaths,
-                             UVICORN_LOGGING_CONFIG)
 
 logger = logging.getLogger(__name__)
 
@@ -35,6 +32,7 @@ def sigterm_handler(pids: List[int]) -> None:
     -------
     None
     """
+    logger.info("Termination Signal Received... exiting")
     for process_pid in pids:
         try:
             os.kill(process_pid, signal.SIGQUIT)
@@ -68,13 +66,17 @@ def start_server_debug(app: str,
     -------
     None
     """
-    logger.info("Starting Up Debug/Development Server")
-    uvicorn.run(app,
-                host=host,
-                port=port,
-                reload=reload,
-                log_config=UVICORN_LOGGING_CONFIG
-                )
+    logger.info(f"Starting Up Debug/Development Server: {app}")
+    commands = [
+        "uvicorn", app,
+        "--host", host,
+        "--port", str(port),
+        "--log-config", FilePaths.UVICORN_LOGGING_CONFIG_FILE,
+    ]
+    if reload is True:
+        commands.append("--reload")
+    uvicorn = subprocess.Popen(commands)
+    uvicorn.communicate()
 
 
 def start_server(asgi_app: str, nginx_config: Union[str, pathlib.Path] = None) -> None:
@@ -113,7 +115,6 @@ def start_server(asgi_app: str, nginx_config: Union[str, pathlib.Path] = None) -
         if pid in process_pids:
             break
     sigterm_handler(pids=[nginx.pid, gunicorn.pid])
-    logger.info("Server exiting")
 
 
 if __name__ == "__main__":

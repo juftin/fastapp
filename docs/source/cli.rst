@@ -6,6 +6,6 @@ ml-server CLI
 Documentation
 ******************
 
-.. click:: ml_server.cli:cli
+.. click:: ml_server._cli:cli
    :prog: ml-server
    :nested: full

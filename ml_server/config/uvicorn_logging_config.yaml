@@ -1,0 +1,36 @@
+version:                  1
+disable_existing_loggers: true
+
+formatters:
+    access:
+        ():     uvicorn.logging.AccessFormatter
+        format: '%(asctime)s [%(levelname)8s] %(name)s: %(message)s'
+    default:
+        ():     uvicorn.logging.DefaultFormatter
+        format: '%(asctime)s [%(levelname)8s] %(name)s: %(message)s'
+
+handlers:
+    default:
+        class:     logging.StreamHandler
+        formatter: default
+        level:     INFO
+        stream:    ext://sys.stdout
+
+loggers:
+    uvicorn:
+        handlers: [ ]
+        level:     INFO
+        propogate: true
+    uvicorn.access:
+        handlers: [ ]
+        level:     INFO
+        propogate: true
+    uvicorn.error:
+        handlers: [ ]
+        level:     INFO
+        propogate: true
+
+root:
+    handlers:
+        - default
+    level: INFO
