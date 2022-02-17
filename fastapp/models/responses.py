@@ -4,10 +4,10 @@ API Response Objects
 
 import datetime
 
-from ml_server.models import MLServerModel
+from fastapp.models import FastAppModel
 
 
-class PingResponse(MLServerModel):
+class PingResponse(FastAppModel):
     """
     Response returned for the `/ping` endpoint
     """
@@ -17,7 +17,7 @@ class PingResponse(MLServerModel):
     timestamp: datetime.datetime
 
 
-class SentimentResponse(MLServerModel):
+class SentimentResponse(FastAppModel):
     """
     Response returned from the `/sentiment` endpoint
     """

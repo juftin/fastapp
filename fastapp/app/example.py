@@ -1,26 +1,26 @@
 """
-ml-server Example FastAPI App
+FastApp Example FastAPI App
 
-pip install ml-server[example]
+pip install fastapp[example]
 """
 
 import json
 
 from fastapi.templating import Jinja2Templates
 
-from ml_server.app.base import ml_server_router, MLServer, MLServerRouter, mount_static_app
-from ml_server.app.machine_learning import machine_learning_router
-from ml_server.app.utils import utils_router
-from ml_server._utils import FilePaths
+from fastapp.app.base import fastapp_router, FastApp, FastAppRouter, mount_static_app
+from fastapp.app.machine_learning import machine_learning_router
+from fastapp.app.utils import utils_router
+from fastapp._utils import FilePaths
 
-app = MLServer()
+app = FastApp()
 
 mount_static_app(app)
 templates = Jinja2Templates(directory=FilePaths.APP_DIR.joinpath("templates"))
 
-router: MLServerRouter
+router: FastAppRouter
 for router in [
-    ml_server_router,
+    fastapp_router,
     utils_router,
     machine_learning_router,
 ]:

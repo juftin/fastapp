@@ -1,3 +1,3 @@
-# ml-server GitHub Pages
+# FastApp GitHub Pages
 
-## [https://juftin.github.io/ml-server](https://juftin.github.io/ml-server/index.html)
+## [https://juftin.github.io/fastapp](https://juftin.github.io/fastapp/index.html)

@@ -21,20 +21,20 @@ COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt && rm /tmp/requirements.txt
 RUN python -m nltk.downloader word2vec_sample vader_lexicon
 
-COPY . /root/ml-server
-ENV PYTHONPATH="/root/ml-server:${PYTHONPATH}"
+COPY . /root/fastapp
+ENV PYTHONPATH="/root/fastapp:${PYTHONPATH}"
 
-#COPY . /tmp/ml-server
-#RUN pip install /tmp/ml-server && rm -rf /tmp/ml-server
+#COPY . /tmp/fastapp
+#RUN pip install /tmp/fastapp && rm -rf /tmp/fastapp
 #RUN python -m nltk.downloader popular
 
 ENV PYTHONUNBUFFERED=TRUE
 ENV PYTHONDONTWRITEBYTECODE=TRUE
 
 ENV HOME="/root"
-RUN mkdir ${HOME}/ml_server
-WORKDIR  ${HOME}/ml_server
+RUN mkdir ${HOME}/fastapp
+WORKDIR  ${HOME}/fastapp
 
-ENTRYPOINT ["python", "/root/ml-server/ml_server/__main__.py"]
+ENTRYPOINT ["python", "/root/fastapp/fastapp/__main__.py"]
 
 CMD ["--help"]

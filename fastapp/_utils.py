@@ -1,5 +1,5 @@
 """
-ml-server Utilities and Helpers
+FastApp Utilities and Helpers
 """
 
 from pathlib import Path
@@ -13,11 +13,11 @@ class FilePaths:
     """
 
     _this_file = Path(__file__).resolve()
-    ML_SERVER_DIR = _this_file.parent
-    CONFIG_DIR = ML_SERVER_DIR.joinpath("config")
-    PROJECT_DIR = ML_SERVER_DIR.parent
+    FASTAPP_DIR = _this_file.parent
+    CONFIG_DIR = FASTAPP_DIR.joinpath("config")
+    PROJECT_DIR = FASTAPP_DIR.parent
 
-    APP_DIR = ML_SERVER_DIR.joinpath("app")
+    APP_DIR = FASTAPP_DIR.joinpath("app")
     STATIC_DIR = APP_DIR.joinpath("static")
 
     GUNICORN_CONFIG_FILE = str(CONFIG_DIR.joinpath("gunicorn_config.py"))

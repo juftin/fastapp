@@ -4,7 +4,7 @@ Example Assertions
 
 import logging
 
-from ml_server._cli import root_logger as cli_logger
+from fastapp._cli import root_logger as cli_logger
 
 
 def test_math():

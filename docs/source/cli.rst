@@ -1,11 +1,11 @@
 ##################
-ml-server CLI
+FastApp CLI
 ##################
 
 ******************
 Documentation
 ******************
 
-.. click:: ml_server._cli:cli
-   :prog: ml-server
+.. click:: fastapp._cli:cli
+   :prog: FastApp
    :nested: full

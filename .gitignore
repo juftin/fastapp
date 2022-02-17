@@ -132,5 +132,5 @@ dmypy.json
 # IDE Files
 .idea/
 
-# ml-server Files
+# fastapp Files
 /docs/source/_static/redoc.html

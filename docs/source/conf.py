@@ -10,10 +10,10 @@ _project_path = Path(__file__).resolve().parent.parent.parent
 _project_dir = str(_project_path)
 sys.path.insert(0, _project_dir)
 
-from ml_server._version import __version__, __ml_server__  # noqa
+from fastapp._version import __version__, __fastapp__  # noqa
 
 _author = "Justin Flannery"
-project = __ml_server__.replace("_", "-")
+project = __fastapp__.replace("_", "-")
 copyright = f"{datetime.now().year}, {_author}"
 author = _author
 release = __version__
@@ -56,7 +56,7 @@ source_suffix = {
 }
 
 autosummary_generate = True
-apidoc_module_dir = str(_project_path.joinpath("ml_server"))
+apidoc_module_dir = str(_project_path.joinpath("fastapp"))
 intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
 
 rst_prolog = """

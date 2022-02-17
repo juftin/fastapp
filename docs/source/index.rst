@@ -1,4 +1,4 @@
-ml-server
+FastApp
 =========
 
 .. toctree::

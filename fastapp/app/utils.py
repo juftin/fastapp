@@ -6,12 +6,12 @@ import logging
 
 from starlette.templating import _TemplateResponse  # noqa
 
-from ml_server.app.base import MLServerRouter
-from ml_server.models import bodies
+from fastapp.app.base import FastAppRouter
+from fastapp.models import bodies
 
 logger = logging.getLogger(__name__)
 
-utils_router = MLServerRouter(tags=["utilities"])
+utils_router = FastAppRouter(tags=["utilities"])
 
 
 @utils_router.post("/request", response_model=bodies.RequestBody)

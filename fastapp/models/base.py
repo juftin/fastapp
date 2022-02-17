@@ -5,15 +5,15 @@ Base Pydantic Object for Containers
 from pydantic import BaseModel
 
 
-class MLServerModel(BaseModel):
+class FastAppModel(BaseModel):
     """
-    MLServer Pydantic BaseModel
+    FastApp Pydantic BaseModel
     """
 
 
-class HashableMLServerModel(MLServerModel):
+class HashableFastAppModel(FastAppModel):
     """
-    Hashable MLServerModel
+    Hashable FastAppModel
     """
 
     def __hash__(self) -> int:
