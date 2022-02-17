@@ -108,7 +108,7 @@ def start_server(asgi_app: str, nginx_config: Union[str, pathlib.Path] = None) -
         "--config", FilePaths.GUNICORN_CONFIG_FILE,
         asgi_app
     ])
-    signal.signal(signal.SIGTERM, lambda x: sigterm_handler([nginx.pid, gunicorn.pid]))
+    signal.signal(signal.SIGTERM, lambda a, b: sigterm_handler([nginx.pid, gunicorn.pid]))
     process_pids = {nginx.pid, gunicorn.pid}
     while True:
         pid, _ = os.wait()
