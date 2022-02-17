@@ -14,26 +14,10 @@ Subpackages
 Submodules
 ----------
 
-ml\_server.cli module
----------------------
-
-.. automodule:: ml_server.cli
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 ml\_server.serve module
 -----------------------
 
 .. automodule:: ml_server.serve
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-ml\_server.utils module
------------------------
-
-.. automodule:: ml_server.utils
    :members:
    :undoc-members:
    :show-inheritance:

@@ -2,35 +2,27 @@
 ml-server
 =========
 
-Directory Structure
--------------------
+Installation
+------------
 
-.. code-block:: text
-
-   ├── ml_server                   Docker Container Source Code
-   │   ├── app.py                  FastAPI App Configuration
-   │   ├── nginx.conf              Nginx Configuration File
-   │   └── serve.py                API Serving Script
-   ├── Dockerfile                  Dockerfile for Project
-   ├── requirements.txt            Project Dependencies
-   ├── docker_entrypoint.sh        Docker Entrypoint file
-   ├── VERSION                     Project Version (and Docker image tag)
-   ├── README.md                   This documentation file :)
-
-Local Usage
------------
-
-Building the Docker Image Locally
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+``ml-server`` isn't ready for PyPi yet. In the meantime you can install directly from GitHub:
 
 .. code-block:: shell
 
-   docker build \
-       --tag juftin/ml-server:latest \
-       .
+   pip install "ml-server @ git+https://github.com/juftin/ml-server.git@main"
 
-Serving the Model Locally
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Using Out the Example Server
+----------------------------
+
+.. code-block:: shell
+
+   pip install "ml-server[example] @ git+https://github.com/juftin/ml-server.git@main"
+
+.. code-block:: shell
+
+   ml-server serve-debug ml_server.app.example:app
+
+...or via docker:
 
 .. code-block:: shell
 
@@ -38,13 +30,35 @@ Serving the Model Locally
        --publish 8080:8080 \
        --volume ${PWD}/ml_server:/root/ml_server \
        juftin/ml-server:latest \
-       serve-debug
+       serve-debug ml_server.app.example:app
 
-Testing Locally
-^^^^^^^^^^^^^^^
+Using ml-server to build an app
+-------------------------------
 
-Health Check
-~~~~~~~~~~~~
+Create a Python File with Endpoints, we'll call this ``main.py``\ :
+
+.. code-block:: python
+
+   from datetime import datetime
+
+   from ml_server.app import app
+
+
+   @app.get("/hello")
+   def custom_endpoint() -> dict:
+       """"
+       This is a Custom API Endpoint
+       """
+       return dict(timestamp=datetime.now(),
+                   hello="world")
+
+Then, using the ``ml-server`` CLI we can serve this App:
+
+.. code-block:: shell
+
+   ml-server serve-debug main:app
+
+Test out our new endpoint:
 
 .. code-block:: shell
 
@@ -52,5 +66,10 @@ Health Check
      --request GET \
      --silent \
      --header "Content-Type: application/json" \
-     http://localhost:8080/ping \
-     | jq
+     http://localhost:8080/hello
+
+Alternatively, if we want to serve this app using Gunicorn, Nginx, and the UvicornWorker:
+
+.. code-block:: shell
+
+   ml-server serve main:app

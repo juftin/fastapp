@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; ml-server 0.1.2 documentation</title>
+  <title>Index &mdash; ml-server 0.1.3 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/autodoc_pydantic.css" type="text/css" />
@@ -77,14 +77,12 @@
  | <a href="#A"><strong>A</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#E"><strong>E</strong></a>
- | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#P"><strong>P</strong></a>
- | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  
@@ -93,23 +91,14 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
-    --asgi-app
-
-      <ul>
-        <li><a href="cli.html#cmdoption-ml-server-serve-asgi-app">ml-server-serve command line option</a>
-</li>
-        <li><a href="cli.html#cmdoption-ml-server-serve-debug-asgi-app">ml-server-serve-debug command line option</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
     --nginx-config
 
       <ul>
         <li><a href="cli.html#cmdoption-ml-server-serve-nginx-config">ml-server-serve command line option</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     --version
 
@@ -125,10 +114,15 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/ml_server.models.html#ml_server.models.bodies.RequestBody.another_example">another_example (ml_server.models.bodies.RequestBody attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/ml_server.html#ml_server.utils.FilePaths.APP_DIR">APP_DIR (ml_server.utils.FilePaths attribute)</a>
+      <li>
+    APP
+
+      <ul>
+        <li><a href="cli.html#cmdoption-ml-server-serve-arg-APP">ml-server-serve command line option</a>
 </li>
+        <li><a href="cli.html#cmdoption-ml-server-serve-debug-arg-APP">ml-server-serve-debug command line option</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -136,10 +130,6 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/ml_server.models.html#ml_server.models.responses.SentimentResponse.compound">compound (ml_server.models.responses.SentimentResponse attribute)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/ml_server.html#ml_server.utils.FilePaths.CONFIG_DIR">CONFIG_DIR (ml_server.utils.FilePaths attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -152,26 +142,16 @@
   </ul></td>
 </tr></table>
 
-<h2 id="F">F</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/ml_server.html#ml_server.utils.FilePaths">FilePaths (class in ml_server.utils)</a>
-</li>
-  </ul></td>
-</tr></table>
-
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/ml_server.app.html#ml_server.app.utils.generic_request">generic_request() (in module ml_server.app.utils)</a>
+</li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/ml_server.app.html#ml_server.app.machine_learning.get_most_similar">get_most_similar() (in module ml_server.app.machine_learning)</a>
 </li>
       <li><a href="api/ml_server.app.html#ml_server.app.machine_learning.get_sentiment">get_sentiment() (in module ml_server.app.machine_learning)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/ml_server.html#ml_server.utils.FilePaths.GUNICORN_CONFIG_FILE">GUNICORN_CONFIG_FILE (ml_server.utils.FilePaths attribute)</a>
-</li>
-      <li><a href="api/ml_server.html#ml_server.utils.FilePaths.GUNICORN_LOGGING_CONFIG_FILE">GUNICORN_LOGGING_CONFIG_FILE (ml_server.utils.FilePaths attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -187,7 +167,7 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/ml_server.app.html#ml_server.app.utils.index">index() (in module ml_server.app.utils)</a>
+      <li><a href="api/ml_server.app.html#ml_server.app.base.index">index() (in module ml_server.app.base)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -206,16 +186,16 @@
     ml-server-serve command line option
 
       <ul>
-        <li><a href="cli.html#cmdoption-ml-server-serve-asgi-app">--asgi-app</a>
-</li>
         <li><a href="cli.html#cmdoption-ml-server-serve-nginx-config">--nginx-config</a>
+</li>
+        <li><a href="cli.html#cmdoption-ml-server-serve-arg-APP">APP</a>
 </li>
       </ul></li>
       <li>
     ml-server-serve-debug command line option
 
       <ul>
-        <li><a href="cli.html#cmdoption-ml-server-serve-debug-asgi-app">--asgi-app</a>
+        <li><a href="cli.html#cmdoption-ml-server-serve-debug-arg-APP">APP</a>
 </li>
       </ul></li>
       <li>
@@ -233,17 +213,17 @@
 </li>
       </ul></li>
       <li>
-    ml_server.app.asgi
-
-      <ul>
-        <li><a href="api/ml_server.app.html#module-ml_server.app.asgi">module</a>
-</li>
-      </ul></li>
-      <li>
     ml_server.app.base
 
       <ul>
         <li><a href="api/ml_server.app.html#module-ml_server.app.base">module</a>
+</li>
+      </ul></li>
+      <li>
+    ml_server.app.example
+
+      <ul>
+        <li><a href="api/ml_server.app.html#module-ml_server.app.example">module</a>
 </li>
       </ul></li>
       <li>
@@ -258,13 +238,6 @@
 
       <ul>
         <li><a href="api/ml_server.app.html#module-ml_server.app.utils">module</a>
-</li>
-      </ul></li>
-      <li>
-    ml_server.cli
-
-      <ul>
-        <li><a href="api/ml_server.html#module-ml_server.cli">module</a>
 </li>
       </ul></li>
       <li>
@@ -286,6 +259,13 @@
 
       <ul>
         <li><a href="api/ml_server.models.html#module-ml_server.models">module</a>
+</li>
+      </ul></li>
+      <li>
+    ml_server.models.base
+
+      <ul>
+        <li><a href="api/ml_server.models.html#module-ml_server.models.base">module</a>
 </li>
       </ul></li>
   </ul></td>
@@ -311,19 +291,22 @@
         <li><a href="api/ml_server.html#module-ml_server.serve">module</a>
 </li>
       </ul></li>
-      <li>
-    ml_server.utils
+      <li><a href="api/ml_server.html#ml_server.MLServer">MLServer (class in ml_server)</a>
 
       <ul>
-        <li><a href="api/ml_server.html#module-ml_server.utils">module</a>
+        <li><a href="api/ml_server.app.html#ml_server.app.MLServer">(class in ml_server.app)</a>
+</li>
+        <li><a href="api/ml_server.app.html#ml_server.app.base.MLServer">(class in ml_server.app.base)</a>
 </li>
       </ul></li>
-      <li><a href="api/ml_server.html#ml_server.utils.FilePaths.ML_SERVER_DIR">ML_SERVER_DIR (ml_server.utils.FilePaths attribute)</a>
+      <li><a href="api/ml_server.html#ml_server.MLServerRouter">MLServerRouter (class in ml_server)</a>
+
+      <ul>
+        <li><a href="api/ml_server.app.html#ml_server.app.MLServerRouter">(class in ml_server.app)</a>
 </li>
-      <li><a href="api/ml_server.app.html#ml_server.app.base.MLServer">MLServer (class in ml_server.app.base)</a>
+        <li><a href="api/ml_server.app.html#ml_server.app.base.MLServerRouter">(class in ml_server.app.base)</a>
 </li>
-      <li><a href="api/ml_server.app.html#ml_server.app.base.MLServerRouter">MLServerRouter (class in ml_server.app.base)</a>
-</li>
+      </ul></li>
       <li>
     module
 
@@ -332,15 +315,13 @@
 </li>
         <li><a href="api/ml_server.app.html#module-ml_server.app">ml_server.app</a>
 </li>
-        <li><a href="api/ml_server.app.html#module-ml_server.app.asgi">ml_server.app.asgi</a>
-</li>
         <li><a href="api/ml_server.app.html#module-ml_server.app.base">ml_server.app.base</a>
+</li>
+        <li><a href="api/ml_server.app.html#module-ml_server.app.example">ml_server.app.example</a>
 </li>
         <li><a href="api/ml_server.app.html#module-ml_server.app.machine_learning">ml_server.app.machine_learning</a>
 </li>
         <li><a href="api/ml_server.app.html#module-ml_server.app.utils">ml_server.app.utils</a>
-</li>
-        <li><a href="api/ml_server.html#module-ml_server.cli">ml_server.cli</a>
 </li>
         <li><a href="api/ml_server.config.html#module-ml_server.config">ml_server.config</a>
 </li>
@@ -348,15 +329,17 @@
 </li>
         <li><a href="api/ml_server.models.html#module-ml_server.models">ml_server.models</a>
 </li>
+        <li><a href="api/ml_server.models.html#module-ml_server.models.base">ml_server.models.base</a>
+</li>
         <li><a href="api/ml_server.models.html#module-ml_server.models.bodies">ml_server.models.bodies</a>
 </li>
         <li><a href="api/ml_server.models.html#module-ml_server.models.responses">ml_server.models.responses</a>
 </li>
         <li><a href="api/ml_server.html#module-ml_server.serve">ml_server.serve</a>
 </li>
-        <li><a href="api/ml_server.html#module-ml_server.utils">ml_server.utils</a>
-</li>
       </ul></li>
+      <li><a href="api/ml_server.app.html#ml_server.app.base.mount_static_app">mount_static_app() (in module ml_server.app.base)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -365,13 +348,11 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/ml_server.models.html#ml_server.models.responses.SentimentResponse.neg">neg (ml_server.models.responses.SentimentResponse attribute)</a>
 </li>
-      <li><a href="api/ml_server.models.html#ml_server.models.bodies.GensimRequest.negative">negative (ml_server.models.bodies.GensimRequest attribute)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/ml_server.models.html#ml_server.models.responses.SentimentResponse.neu">neu (ml_server.models.responses.SentimentResponse attribute)</a>
+      <li><a href="api/ml_server.models.html#ml_server.models.bodies.GensimRequest.negative">negative (ml_server.models.bodies.GensimRequest attribute)</a>
 </li>
-      <li><a href="api/ml_server.html#ml_server.utils.FilePaths.NGINX_CONFIG_FILE">NGINX_CONFIG_FILE (ml_server.utils.FilePaths attribute)</a>
+      <li><a href="api/ml_server.models.html#ml_server.models.responses.SentimentResponse.neu">neu (ml_server.models.responses.SentimentResponse attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -379,23 +360,13 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/ml_server.app.html#ml_server.app.utils.ping">ping() (in module ml_server.app.utils)</a>
+      <li><a href="api/ml_server.app.html#ml_server.app.base.ping">ping() (in module ml_server.app.base)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/ml_server.models.html#ml_server.models.responses.SentimentResponse.pos">pos (ml_server.models.responses.SentimentResponse attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/ml_server.models.html#ml_server.models.bodies.GensimRequest.positive">positive (ml_server.models.bodies.GensimRequest attribute)</a>
-</li>
-      <li><a href="api/ml_server.html#ml_server.utils.FilePaths.PROJECT_DIR">PROJECT_DIR (ml_server.utils.FilePaths attribute)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="R">R</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/ml_server.app.html#ml_server.app.utils.request">request() (in module ml_server.app.utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -405,17 +376,11 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/ml_server.html#ml_server.serve.sigterm_handler">sigterm_handler() (in module ml_server.serve)</a>
 </li>
-      <li><a href="api/ml_server.html#ml_server.start_server">start_server() (in module ml_server)</a>
-
-      <ul>
-        <li><a href="api/ml_server.html#ml_server.serve.start_server">(in module ml_server.serve)</a>
+      <li><a href="api/ml_server.html#ml_server.serve.start_server">start_server() (in module ml_server.serve)</a>
 </li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/ml_server.html#ml_server.serve.start_server_debug">start_server_debug() (in module ml_server.serve)</a>
-</li>
-      <li><a href="api/ml_server.html#ml_server.utils.FilePaths.STATIC_DIR">STATIC_DIR (ml_server.utils.FilePaths attribute)</a>
 </li>
       <li><a href="api/ml_server.models.html#ml_server.models.responses.PingResponse.status">status (ml_server.models.responses.PingResponse attribute)</a>
 </li>

@@ -4,18 +4,18 @@ ml\_server.app package
 Submodules
 ----------
 
-ml\_server.app.asgi module
---------------------------
-
-.. automodule:: ml_server.app.asgi
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 ml\_server.app.base module
 --------------------------
 
 .. automodule:: ml_server.app.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ml\_server.app.example module
+-----------------------------
+
+.. automodule:: ml_server.app.example
    :members:
    :undoc-members:
    :show-inheritance:

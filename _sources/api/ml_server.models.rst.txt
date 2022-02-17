@@ -4,6 +4,14 @@ ml\_server.models package
 Submodules
 ----------
 
+ml\_server.models.base module
+-----------------------------
+
+.. automodule:: ml_server.models.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 ml\_server.models.bodies module
 -------------------------------
 

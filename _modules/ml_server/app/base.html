@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml_server.app.base &mdash; ml-server 0.1.2 documentation</title>
+  <title>ml_server.app.base &mdash; ml-server 0.1.3 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/autodoc_pydantic.css" type="text/css" />
@@ -74,24 +74,29 @@
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Inheritance and Wrapper Classes for MLServer</span>
 <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">APIRouter</span><span class="p">,</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.requests</span> <span class="kn">import</span> <span class="n">Request</span>
+<span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">HTMLResponse</span>
+<span class="kn">from</span> <span class="nn">fastapi.staticfiles</span> <span class="kn">import</span> <span class="n">StaticFiles</span>
 <span class="kn">from</span> <span class="nn">fastapi.templating</span> <span class="kn">import</span> <span class="n">Jinja2Templates</span>
+<span class="kn">from</span> <span class="nn">starlette.templating</span> <span class="kn">import</span> <span class="n">_TemplateResponse</span>  <span class="c1"># noqa</span>
 
+<span class="kn">from</span> <span class="nn">ml_server._utils</span> <span class="kn">import</span> <span class="n">FilePaths</span>
 <span class="kn">from</span> <span class="nn">ml_server._version</span> <span class="kn">import</span> <span class="n">__ml_server__</span><span class="p">,</span> <span class="n">__version__</span>
-<span class="kn">from</span> <span class="nn">ml_server.utils</span> <span class="kn">import</span> <span class="n">FilePaths</span>
-
-<span class="n">templates</span> <span class="o">=</span> <span class="n">Jinja2Templates</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="n">FilePaths</span><span class="o">.</span><span class="n">ML_SERVER_DIR</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;templates&quot;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">ml_server.models.responses</span> <span class="kn">import</span> <span class="n">PingResponse</span>
 
 
-<div class="viewcode-block" id="MLServerRouter"><a class="viewcode-back" href="../../../api/ml_server.app.html#ml_server.app.base.MLServerRouter">[docs]</a><span class="k">class</span> <span class="nc">MLServerRouter</span><span class="p">(</span><span class="n">APIRouter</span><span class="p">):</span>
+<div class="viewcode-block" id="MLServerRouter"><a class="viewcode-back" href="../../../api/ml_server.app.html#ml_server.MLServerRouter">[docs]</a><span class="k">class</span> <span class="nc">MLServerRouter</span><span class="p">(</span><span class="n">APIRouter</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base API Router Class for MLServer</span>
 <span class="sd">    &quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="MLServer"><a class="viewcode-back" href="../../../api/ml_server.app.html#ml_server.app.base.MLServer">[docs]</a><span class="k">class</span> <span class="nc">MLServer</span><span class="p">(</span><span class="n">FastAPI</span><span class="p">):</span>
+<div class="viewcode-block" id="MLServer"><a class="viewcode-back" href="../../../api/ml_server.app.html#ml_server.MLServer">[docs]</a><span class="k">class</span> <span class="nc">MLServer</span><span class="p">(</span><span class="n">FastAPI</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    MLServer FastAPI Class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -122,6 +127,55 @@
             <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span></div>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">MLServer</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="mount_static_app"><a class="viewcode-back" href="../../../api/ml_server.app.html#ml_server.mount_static_app">[docs]</a><span class="k">def</span> <span class="nf">mount_static_app</span><span class="p">(</span><span class="n">mlserver_app</span><span class="p">:</span> <span class="n">MLServer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MLServer</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Mount the ml-server internal static directory to an app</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mlserver_app: MLServer</span>
+<span class="sd">        App to mount directory onto</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    MLServer</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_static_dir</span> <span class="o">=</span> <span class="n">FilePaths</span><span class="o">.</span><span class="n">APP_DIR</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;static&quot;</span><span class="p">)</span>
+    <span class="n">mlserver_app</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/static&quot;</span><span class="p">,</span> <span class="n">StaticFiles</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="n">_static_dir</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;static&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mlserver_app</span></div>
+
+
+<span class="n">mount_static_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<span class="n">templates</span> <span class="o">=</span> <span class="n">Jinja2Templates</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="n">FilePaths</span><span class="o">.</span><span class="n">APP_DIR</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;templates&quot;</span><span class="p">))</span>
+<span class="n">ml_server_router</span> <span class="o">=</span> <span class="n">MLServerRouter</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ml-server&quot;</span><span class="p">])</span>
+
+
+<div class="viewcode-block" id="index"><a class="viewcode-back" href="../../../api/ml_server.app.html#ml_server.index">[docs]</a><span class="nd">@ml_server_router</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">include_in_schema</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">response_class</span><span class="o">=</span><span class="n">HTMLResponse</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_TemplateResponse</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load the Homepage</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">templates</span><span class="o">.</span><span class="n">TemplateResponse</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span>
+                                      <span class="n">context</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">__version__</span><span class="p">)</span>
+                                      <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ping"><a class="viewcode-back" href="../../../api/ml_server.app.html#ml_server.ping">[docs]</a><span class="nd">@ml_server_router</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/ping&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">PingResponse</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">ping</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">PingResponse</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a Health Response</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">PingResponse</span><span class="p">(</span><span class="n">healthy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                        <span class="n">timestamp</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span></div>
+
+
+<span class="n">app</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="n">router</span><span class="o">=</span><span class="n">ml_server_router</span><span class="p">)</span>
 </pre></div>
 
            </div>

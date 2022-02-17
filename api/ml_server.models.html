@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml_server.models package &mdash; ml-server 0.1.2 documentation</title>
+  <title>ml_server.models package &mdash; ml-server 0.1.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/autodoc_pydantic.css" type="text/css" />
@@ -54,9 +54,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ml_server.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ml_server.html#module-ml_server.cli">ml_server.cli module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml_server.html#module-ml_server.serve">ml_server.serve module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ml_server.html#module-ml_server.utils">ml_server.utils module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml_server.html#module-ml_server">Module contents</a></li>
 </ul>
 </li>
@@ -95,13 +93,31 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
 </section>
+<section id="module-ml_server.models.base">
+<span id="ml-server-models-base-module"></span><h2>ml_server.models.base module<a class="headerlink" href="#module-ml_server.models.base" title="Permalink to this headline"></a></h2>
+<p>Base Pydantic Object for Containers</p>
+<dl class="py class pydantic_model">
+<dt class="sig sig-object py" id="ml_server.models.base.HashableMLServerModel">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.models.base.</span></span><span class="sig-name descname"><span class="pre">HashableMLServerModel</span></span><a class="reference internal" href="../_modules/ml_server/models/base.html#HashableMLServerModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.models.base.HashableMLServerModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ml_server.models.base.MLServerModel" title="ml_server.models.base.MLServerModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ml_server.models.base.MLServerModel</span></code></a></p>
+<p>Hashable MLServerModel</p>
+</dd></dl>
+
+<dl class="py class pydantic_model">
+<dt class="sig sig-object py" id="ml_server.models.base.MLServerModel">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.models.base.</span></span><span class="sig-name descname"><span class="pre">MLServerModel</span></span><a class="reference internal" href="../_modules/ml_server/models/base.html#MLServerModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.models.base.MLServerModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<p>MLServer Pydantic BaseModel</p>
+</dd></dl>
+
+</section>
 <section id="module-ml_server.models.bodies">
 <span id="ml-server-models-bodies-module"></span><h2>ml_server.models.bodies module<a class="headerlink" href="#module-ml_server.models.bodies" title="Permalink to this headline"></a></h2>
 <p>API Request Body Containers</p>
 <dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="ml_server.models.bodies.GensimRequest">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.models.bodies.</span></span><span class="sig-name descname"><span class="pre">GensimRequest</span></span><a class="reference internal" href="../_modules/ml_server/models/bodies.html#GensimRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.models.bodies.GensimRequest" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#ml_server.models.base.MLServerModel" title="ml_server.models.base.MLServerModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ml_server.models.base.MLServerModel</span></code></a></p>
 <p>Data body for requests to the <cite>/most_similar</cite> endpoint</p>
 <dl class="field-list simple">
 <dt class="field-odd">Fields</dt>
@@ -132,7 +148,7 @@
 <dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="ml_server.models.bodies.RequestBody">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.models.bodies.</span></span><span class="sig-name descname"><span class="pre">RequestBody</span></span><a class="reference internal" href="../_modules/ml_server/models/bodies.html#RequestBody"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.models.bodies.RequestBody" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#ml_server.models.base.MLServerModel" title="ml_server.models.base.MLServerModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ml_server.models.base.MLServerModel</span></code></a></p>
 <p>Data body for the generic <cite>/request</cite> endpoint</p>
 <dl class="field-list simple">
 <dt class="field-odd">Fields</dt>
@@ -157,7 +173,7 @@
 <dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="ml_server.models.bodies.SentimentRequest">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.models.bodies.</span></span><span class="sig-name descname"><span class="pre">SentimentRequest</span></span><a class="reference internal" href="../_modules/ml_server/models/bodies.html#SentimentRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.models.bodies.SentimentRequest" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#ml_server.models.base.MLServerModel" title="ml_server.models.base.MLServerModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ml_server.models.base.MLServerModel</span></code></a></p>
 <p>Request Format for the <cite>/sentiment</cite> endpoint</p>
 <dl class="field-list simple">
 <dt class="field-odd">Fields</dt>
@@ -180,7 +196,7 @@
 <dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="ml_server.models.responses.PingResponse">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.models.responses.</span></span><span class="sig-name descname"><span class="pre">PingResponse</span></span><a class="reference internal" href="../_modules/ml_server/models/responses.html#PingResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.models.responses.PingResponse" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#ml_server.models.base.MLServerModel" title="ml_server.models.base.MLServerModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ml_server.models.base.MLServerModel</span></code></a></p>
 <p>Response returned for the <cite>/ping</cite> endpoint</p>
 <dl class="field-list simple">
 <dt class="field-odd">Fields</dt>
@@ -211,7 +227,7 @@
 <dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="ml_server.models.responses.SentimentResponse">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.models.responses.</span></span><span class="sig-name descname"><span class="pre">SentimentResponse</span></span><a class="reference internal" href="../_modules/ml_server/models/responses.html#SentimentResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.models.responses.SentimentResponse" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#ml_server.models.base.MLServerModel" title="ml_server.models.base.MLServerModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ml_server.models.base.MLServerModel</span></code></a></p>
 <p>Response returned from the <cite>/sentiment</cite> endpoint</p>
 <dl class="field-list simple">
 <dt class="field-odd">Fields</dt>
@@ -249,6 +265,13 @@
 <section id="module-ml_server.models">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ml_server.models" title="Permalink to this headline"></a></h2>
 <p>API Pydantic Models</p>
+<dl class="py class pydantic_model">
+<dt class="sig sig-object py" id="ml_server.models.MLServerModel">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml_server.models.</span></span><span class="sig-name descname"><span class="pre">MLServerModel</span></span><a class="reference internal" href="../_modules/ml_server/models/base.html#MLServerModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_server.models.MLServerModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<p>MLServer Pydantic BaseModel</p>
+</dd></dl>
+
 </section>
 </section>
 
