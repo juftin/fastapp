@@ -52,7 +52,7 @@ jobs:
             -   name: Build and Test Docker Image
                 run:  |
                       docker build \
-                          --tag "juftin/ml-server:latest" \
-                          --tag "juftin/ml-server:${{ env.VERSION }}" \
+                          --tag "juftin/fastapp:latest" \
+                          --tag "juftin/fastapp:${{ env.VERSION }}" \
                           .
-                      docker run --rm juftin/ml-server:latest
+                      docker run --rm juftin/fastapp:latest

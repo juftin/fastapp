@@ -4,10 +4,10 @@ API Request Body Containers
 
 from typing import List, Union
 
-from ml_server.models import MLServerModel
+from fastapp.models import FastAppModel
 
 
-class RequestBody(MLServerModel):
+class RequestBody(FastAppModel):
     """
     Data body for the generic `/request` endpoint
     """
@@ -16,7 +16,7 @@ class RequestBody(MLServerModel):
     another_example: str
 
 
-class GensimRequest(MLServerModel):
+class GensimRequest(FastAppModel):
     """
     Data body for requests to the `/most_similar` endpoint
     """
@@ -26,7 +26,7 @@ class GensimRequest(MLServerModel):
     topn: int = 10
 
 
-class SentimentRequest(MLServerModel):
+class SentimentRequest(FastAppModel):
     """
     Request Format for the `/sentiment` endpoint
     """

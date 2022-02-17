@@ -1,5 +1,5 @@
 """
-Inheritance and Wrapper Classes for MLServer
+Inheritance and Wrapper Classes for FastApp
 """
 
 import datetime
@@ -12,25 +12,25 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.templating import _TemplateResponse  # noqa
 
-from ml_server._utils import FilePaths
-from ml_server._version import __ml_server__, __version__
-from ml_server.models.responses import PingResponse
+from fastapp._utils import FilePaths
+from fastapp._version import __fastapp__, __version__
+from fastapp.models.responses import PingResponse
 
 
-class MLServerRouter(APIRouter):
+class FastAppRouter(APIRouter):
     """
-    Base API Router Class for MLServer
+    Base API Router Class for FastApp
     """
 
 
-class MLServer(FastAPI):
+class FastApp(FastAPI):
     """
-    MLServer FastAPI Class
+    FastApp FastAPI Class
     """
 
     def __init__(self,
                  debug: bool = True,
-                 title: str = __ml_server__,
+                 title: str = __fastapp__,
                  description: str = "Example ML Server with FastAPI",
                  version: str = __version__,
                  **kwargs: Any):
@@ -47,7 +47,7 @@ class MLServer(FastAPI):
         **kwargs
             Arbitrary keyword arguments passed to the FastAPI Object
         """
-        super(MLServer, self).__init__(
+        super(FastApp, self).__init__(
             debug=debug,
             title=title,
             description=description,
@@ -56,33 +56,33 @@ class MLServer(FastAPI):
         )
 
 
-app = MLServer()
+app = FastApp()
 
 
-def mount_static_app(mlserver_app: MLServer) -> MLServer:
+def mount_static_app(fastapp_app: FastApp) -> FastApp:
     """
-    Mount the ml-server internal static directory to an app
+    Mount the fastapp internal static directory to an app
 
     Parameters
     ----------
-    mlserver_app: MLServer
+    fastapp_app: FastApp
         App to mount directory onto
 
     Returns
     -------
-    MLServer
+    FastApp
     """
     _static_dir = FilePaths.APP_DIR.joinpath("static")
-    mlserver_app.mount("/static", StaticFiles(directory=_static_dir), name="static")
-    return mlserver_app
+    fastapp_app.mount("/static", StaticFiles(directory=_static_dir), name="static")
+    return fastapp_app
 
 
 mount_static_app(app)
 templates = Jinja2Templates(directory=FilePaths.APP_DIR.joinpath("templates"))
-ml_server_router = MLServerRouter(tags=["ml-server"])
+fastapp_router = FastAppRouter(tags=["fastapp"])
 
 
-@ml_server_router.get("/", include_in_schema=False, response_class=HTMLResponse)
+@fastapp_router.get("/", include_in_schema=False, response_class=HTMLResponse)
 async def index(request: Request) -> _TemplateResponse:
     """
     Load the Homepage
@@ -92,7 +92,7 @@ async def index(request: Request) -> _TemplateResponse:
                                       )
 
 
-@ml_server_router.get("/ping", response_model=PingResponse)
+@fastapp_router.get("/ping", response_model=PingResponse)
 async def ping() -> PingResponse:
     """
     Return a Health Response
@@ -102,4 +102,4 @@ async def ping() -> PingResponse:
                         timestamp=datetime.datetime.utcnow())
 
 
-app.include_router(router=ml_server_router)
+app.include_router(router=fastapp_router)

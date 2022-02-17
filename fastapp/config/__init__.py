@@ -1,0 +1,3 @@
+"""
+FastApp config
+"""

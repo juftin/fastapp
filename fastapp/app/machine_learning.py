@@ -10,8 +10,8 @@ from nltk import download
 from nltk.data import find
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
-from ml_server.app.base import MLServerRouter
-from ml_server.models import bodies, responses
+from fastapp.app.base import FastAppRouter
+from fastapp.models import bodies, responses
 
 logger = logging.getLogger(__name__)
 
@@ -29,8 +29,8 @@ gensim_model = gensim.models.KeyedVectors.load_word2vec_format(word2vec_sample, 
 
 sid = SentimentIntensityAnalyzer()
 
-machine_learning_router = MLServerRouter(prefix="/ml",
-                                         tags=["machine learning"])
+machine_learning_router = FastAppRouter(prefix="/ml",
+                                        tags=["machine learning"])
 
 
 @machine_learning_router.post("/most_similar")

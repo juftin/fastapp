@@ -12,9 +12,9 @@ import subprocess
 import sys
 from typing import List, Union
 
-from ml_server._utils import FilePaths
-from ml_server._version import __asgi__
-from ml_server.config import gunicorn_config
+from fastapp._utils import FilePaths
+from fastapp._version import __asgi__
+from fastapp.config import gunicorn_config
 
 logger = logging.getLogger(__name__)
 

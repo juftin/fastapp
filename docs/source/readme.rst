@@ -1,50 +1,66 @@
 
-ml-server
-=========
+FastApp
+=======
 
-Directory Structure
--------------------
+HTTP Apps Made Easier with FastApp
 
-.. code-block:: text
+Installation
+------------
 
-   ├── ml_server                   Docker Container Source Code
-   │   ├── app.py                  FastAPI App Configuration
-   │   ├── nginx.conf              Nginx Configuration File
-   │   └── serve.py                API Serving Script
-   ├── Dockerfile                  Dockerfile for Project
-   ├── requirements.txt            Project Dependencies
-   ├── docker_entrypoint.sh        Docker Entrypoint file
-   ├── VERSION                     Project Version (and Docker image tag)
-   ├── README.md                   This documentation file :)
-
-Local Usage
------------
-
-Building the Docker Image Locally
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+``FastApp`` isn't ready for PyPi yet. In the meantime you can install directly from GitHub:
 
 .. code-block:: shell
 
-   docker build \
-       --tag juftin/ml-server:latest \
-       .
+   pip install "fastapp @ git+https://github.com/juftin/fastapp.git@main"
 
-Serving the Model Locally
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Using Out the Example Server
+----------------------------
+
+.. code-block:: shell
+
+   pip install "fastapp[example] @ git+https://github.com/juftin/fastapp.git@main"
+
+.. code-block:: shell
+
+   fastapp serve-debug fastapp.app.example:app
+
+...or via docker:
 
 .. code-block:: shell
 
    docker run --rm -it \
        --publish 8080:8080 \
-       --volume ${PWD}/ml_server:/root/ml_server \
-       juftin/ml-server:latest \
-       serve-debug
+       --volume ${PWD}/fastapp:/root/fastapp \
+       juftin/fastapp:latest \
+       serve-debug fastapp.app.example:app
 
-Testing Locally
-^^^^^^^^^^^^^^^
+Using FastApp to build an app
+-----------------------------
 
-Health Check
-~~~~~~~~~~~~
+Create a Python File with Endpoints, we'll call this ``main.py``\ :
+
+.. code-block:: python
+
+   from datetime import datetime
+
+   from fastapp.app import app
+
+
+   @app.get("/hello")
+   def custom_endpoint() -> dict:
+       """"
+       This is a Custom API Endpoint
+       """
+       return dict(timestamp=datetime.now(),
+                   hello="world")
+
+Then, using the ``FastApp`` CLI we can serve this App:
+
+.. code-block:: shell
+
+   fastapp serve-debug main:app
+
+Test out our new endpoint:
 
 .. code-block:: shell
 
@@ -52,5 +68,10 @@ Health Check
      --request GET \
      --silent \
      --header "Content-Type: application/json" \
-     http://localhost:8080/ping \
-     | jq
+     http://localhost:8080/hello
+
+Alternatively, if we want to serve this app using Gunicorn, Nginx, and the UvicornWorker:
+
+.. code-block:: shell
+
+   fastapp serve main:app

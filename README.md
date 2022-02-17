@@ -1,41 +1,33 @@
-# ml-server
+# FastApp
+
+HTTP Apps Made Easier with FastApp
 
 ## Installation
 
-`ml-server` isn't ready for PyPi yet. In the meantime you can install directly from GitHub:
+`FastApp` isn't ready for PyPi yet. In the meantime you can install directly from GitHub:
 
 ```shell
-pip install "ml-server @ git+https://github.com/juftin/ml-server.git@main"
+pip install "fastapp @ git+https://github.com/juftin/fastapp.git@main"
 ```
 
 ## Using Out the Example Server
 
 ```shell
-pip install "ml-server[example] @ git+https://github.com/juftin/ml-server.git@main"
+pip install "fastapp[example] @ git+https://github.com/juftin/fastapp.git@main"
 ```
 
 ```shell
-ml-server serve-debug ml_server.app.example:app
+fastapp serve-debug fastapp.app.example:app
 ```
 
-...or via docker:
-
-```shell
-docker run --rm -it \
-    --publish 8080:8080 \
-    --volume ${PWD}/ml_server:/root/ml_server \
-    juftin/ml-server:latest \
-    serve-debug ml_server.app.example:app
-```
-
-## Using ml-server to build an app
+## Using FastApp to build an app
 
 Create a Python File with Endpoints, we'll call this `main.py`:
 
 ```python
 from datetime import datetime
 
-from ml_server.app import app
+from fastapp.app import app
 
 
 @app.get("/hello")
@@ -47,10 +39,20 @@ def custom_endpoint() -> dict:
                 hello="world")
 ```
 
-Then, using the `ml-server` CLI we can serve this App:
+Then, using the `FastApp` CLI we can serve this App:
 
 ```shell
-ml-server serve-debug main:app
+fastapp serve-debug main:app
+```
+
+...or via docker:
+
+```shell
+docker run --rm -it \
+    --publish 8080:8080 \
+    --volume ${PWD}/main.py:/root/fastapp/main.py \
+    juftin/fastapp:latest \
+    serve-debug main:app
 ```
 
 Test out our new endpoint:
@@ -58,13 +60,23 @@ Test out our new endpoint:
 ```shell
 curl \
   --request GET \
-  --silent \
   --header "Content-Type: application/json" \
   http://localhost:8080/hello
 ```
 
-Alternatively, if we want to serve this app using Gunicorn, Nginx, and the UvicornWorker:
+Alternatively, if we want to serve this app using Gunicorn, Nginx, and the UvicornWorker we can use
+the `serve` command:
 
 ```shell
-ml-server serve main:app
+fastapp serve main:app
+```
+
+I prefer doing this within a docker container so you don't have to run Nginx on the host machine:
+
+```shell
+docker run --rm -it \
+    --publish 8080:8080 \
+    --volume ${PWD}/main.py:/root/fastapp/main.py \
+    juftin/fastapp:latest \
+    serve main:app
 ```

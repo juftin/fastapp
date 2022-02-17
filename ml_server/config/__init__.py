@@ -1,3 +1,0 @@
-"""
-ml-server config
-"""

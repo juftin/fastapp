@@ -1,15 +1,15 @@
 {
     "openapi": "3.0.2",
     "info": {
-        "title": "ml-server",
+        "title": "FastApp",
         "description": "Example ML Server with FastAPI",
-        "version": "0.1.2"
+        "version": "0.1.3"
     },
     "paths": {
         "/ping": {
             "get": {
                 "tags": [
-                    "ml-server"
+                    "fastapp"
                 ],
                 "summary": "Ping",
                 "description": "Return a Health Response",

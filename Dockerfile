@@ -17,24 +17,17 @@ RUN apt-get -y update && \
 
 RUN pip install --upgrade pip wheel setuptools cython
 
-COPY requirements.txt /tmp/requirements.txt
-RUN pip install -r /tmp/requirements.txt && rm /tmp/requirements.txt
+COPY . /tmp/fastapp
+RUN pip install /tmp/fastapp[example] && rm -rf /tmp/fastapp
 RUN python -m nltk.downloader word2vec_sample vader_lexicon
-
-COPY . /root/ml-server
-ENV PYTHONPATH="/root/ml-server:${PYTHONPATH}"
-
-#COPY . /tmp/ml-server
-#RUN pip install /tmp/ml-server && rm -rf /tmp/ml-server
-#RUN python -m nltk.downloader popular
 
 ENV PYTHONUNBUFFERED=TRUE
 ENV PYTHONDONTWRITEBYTECODE=TRUE
 
 ENV HOME="/root"
-RUN mkdir ${HOME}/ml_server
-WORKDIR  ${HOME}/ml_server
+RUN mkdir -p ${HOME}/fastapp
+WORKDIR  ${HOME}/fastapp
 
-ENTRYPOINT ["python", "/root/ml-server/ml_server/__main__.py"]
+ENTRYPOINT ["fastapp"]
 
 CMD ["--help"]
