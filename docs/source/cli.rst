@@ -7,5 +7,5 @@ Documentation
 ******************
 
 .. click:: fastapp._cli:cli
-   :prog: FastApp
+   :prog: fastapp
    :nested: full

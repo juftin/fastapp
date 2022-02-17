@@ -8,7 +8,7 @@ from typing import Optional
 
 import click
 
-from fastapp._version import __asgi__, __fastapp__
+from fastapp._version import __asgi__, __fastapp__, __version__
 from fastapp.serve import start_server, start_server_debug
 
 root_logger = logging.getLogger()
@@ -24,7 +24,7 @@ fastapp_app = click.argument("app", default=__asgi__)
 
 
 @click.group()
-@click.version_option(version=click.__version__, prog_name=__fastapp__)
+@click.version_option(version=__version__, prog_name=__fastapp__)
 @click.pass_context
 def cli(ctx: click.core.Context) -> None:
     """
