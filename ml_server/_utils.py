@@ -22,15 +22,9 @@ class FilePaths:
 
     GUNICORN_CONFIG_FILE = str(CONFIG_DIR.joinpath("gunicorn_config.py"))
     GUNICORN_LOGGING_CONFIG_FILE = str(CONFIG_DIR.joinpath("logging_config.yaml"))
+    UVICORN_LOGGING_CONFIG_FILE = str(CONFIG_DIR.joinpath("uvicorn_logging_config.yaml"))
     NGINX_CONFIG_FILE = str(CONFIG_DIR.joinpath("nginx.conf"))
 
 
 with open(FilePaths.GUNICORN_LOGGING_CONFIG_FILE, "r") as yaml_file:
     GUNICORN_LOGGING_CONFIG = yaml.load(yaml_file, Loader=yaml.SafeLoader)
-
-UVICORN_LOGGING_CONFIG = GUNICORN_LOGGING_CONFIG.copy()
-UVICORN_LOGGING_CONFIG["loggers"] = {}
-for logger_name, logger_config in GUNICORN_LOGGING_CONFIG["loggers"].items():
-    if "uvicorn" in logger_name:
-        UVICORN_LOGGING_CONFIG["loggers"][logger_name] = logger_config
-        UVICORN_LOGGING_CONFIG["loggers"][logger_name]["handlers"] = []
