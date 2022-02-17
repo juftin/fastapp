@@ -1,0 +1,45 @@
+fastapp.app package
+===================
+
+Submodules
+----------
+
+fastapp.app.base module
+-----------------------
+
+.. automodule:: fastapp.app.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fastapp.app.example module
+--------------------------
+
+.. automodule:: fastapp.app.example
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fastapp.app.machine\_learning module
+------------------------------------
+
+.. automodule:: fastapp.app.machine_learning
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fastapp.app.utils module
+------------------------
+
+.. automodule:: fastapp.app.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: fastapp.app
+   :members:
+   :undoc-members:
+   :show-inheritance:

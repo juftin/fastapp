@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml_server.serve &mdash; ml-server 0.1.3 documentation</title>
+  <title>fastapp.serve &mdash; FastApp 0.1.4 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/autodoc_pydantic.css" type="text/css" />
@@ -29,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> ml-server
+            <a href="../../index.html" class="icon icon-home"> FastApp
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -52,7 +52,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">ml-server</a>
+          <a href="../../index.html">FastApp</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -61,7 +61,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Module code</a> &raquo;</li>
-      <li>ml_server.serve</li>
+      <li>fastapp.serve</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -70,7 +70,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for ml_server.serve</h1><div class="highlight"><pre>
+  <h1>Source code for fastapp.serve</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -85,14 +85,14 @@
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
-<span class="kn">from</span> <span class="nn">ml_server._utils</span> <span class="kn">import</span> <span class="n">FilePaths</span>
-<span class="kn">from</span> <span class="nn">ml_server._version</span> <span class="kn">import</span> <span class="n">__asgi__</span>
-<span class="kn">from</span> <span class="nn">ml_server.config</span> <span class="kn">import</span> <span class="n">gunicorn_config</span>
+<span class="kn">from</span> <span class="nn">fastapp._utils</span> <span class="kn">import</span> <span class="n">FilePaths</span>
+<span class="kn">from</span> <span class="nn">fastapp._version</span> <span class="kn">import</span> <span class="n">__asgi__</span>
+<span class="kn">from</span> <span class="nn">fastapp.config</span> <span class="kn">import</span> <span class="n">gunicorn_config</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="sigterm_handler"><a class="viewcode-back" href="../../api/ml_server.html#ml_server.serve.sigterm_handler">[docs]</a><span class="k">def</span> <span class="nf">sigterm_handler</span><span class="p">(</span><span class="n">pids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="sigterm_handler"><a class="viewcode-back" href="../../api/fastapp.html#fastapp.serve.sigterm_handler">[docs]</a><span class="k">def</span> <span class="nf">sigterm_handler</span><span class="p">(</span><span class="n">pids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Termination Signal Handler</span>
 
@@ -114,7 +114,7 @@
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="start_server_debug"><a class="viewcode-back" href="../../api/ml_server.html#ml_server.serve.start_server_debug">[docs]</a><span class="k">def</span> <span class="nf">start_server_debug</span><span class="p">(</span><span class="n">app</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<div class="viewcode-block" id="start_server_debug"><a class="viewcode-back" href="../../api/fastapp.html#fastapp.serve.start_server_debug">[docs]</a><span class="k">def</span> <span class="nf">start_server_debug</span><span class="p">(</span><span class="n">app</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                        <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
                        <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">,</span>
                        <span class="n">reload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -152,7 +152,7 @@
     <span class="n">uvicorn</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="start_server"><a class="viewcode-back" href="../../api/ml_server.html#ml_server.serve.start_server">[docs]</a><span class="k">def</span> <span class="nf">start_server</span><span class="p">(</span><span class="n">asgi_app</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">nginx_config</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="start_server"><a class="viewcode-back" href="../../api/fastapp.html#fastapp.serve.start_server">[docs]</a><span class="k">def</span> <span class="nf">start_server</span><span class="p">(</span><span class="n">asgi_app</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">nginx_config</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Start the Nginx and Gunicorn Proceses</span>
 

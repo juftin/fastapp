@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml-server &mdash; ml-server 0.1.3 documentation</title>
+  <title>FastApp &mdash; FastApp 0.1.4 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/autodoc_pydantic.css" type="text/css" />
@@ -23,8 +23,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ml-server CLI" href="cli.html" />
-    <link rel="prev" title="ml-server" href="index.html" /> 
+    <link rel="next" title="FastApp CLI" href="cli.html" />
+    <link rel="prev" title="FastApp" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +32,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> ml-server
+            <a href="index.html" class="icon icon-home"> FastApp
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -46,7 +46,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">README</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-out-the-example-server">Using Out the Example Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-ml-server-to-build-an-app">Using ml-server to build an app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-fastapp-to-build-an-app">Using FastApp to build an app</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">CLI Documentation</a></li>
@@ -60,7 +60,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">ml-server</a>
+          <a href="index.html">FastApp</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -68,7 +68,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>ml-server</li>
+      <li>FastApp</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/readme.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -78,38 +78,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="ml-server">
-<h1>ml-server<a class="headerlink" href="#ml-server" title="Permalink to this headline"></a></h1>
+  <section id="fastapp">
+<h1>FastApp<a class="headerlink" href="#fastapp" title="Permalink to this headline"></a></h1>
+<p>HTTP Apps Made Easier with FastApp</p>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">ml-server</span></code> isn’t ready for PyPi yet. In the meantime you can install directly from GitHub:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install <span class="s2">&quot;ml-server @ git+https://github.com/juftin/ml-server.git@main&quot;</span>
+<p><code class="docutils literal notranslate"><span class="pre">FastApp</span></code> isn’t ready for PyPi yet. In the meantime you can install directly from GitHub:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install <span class="s2">&quot;fastapp @ git+https://github.com/juftin/fastapp.git@main&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="using-out-the-example-server">
 <h2>Using Out the Example Server<a class="headerlink" href="#using-out-the-example-server" title="Permalink to this headline"></a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install <span class="s2">&quot;ml-server[example] @ git+https://github.com/juftin/ml-server.git@main&quot;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install <span class="s2">&quot;fastapp[example] @ git+https://github.com/juftin/fastapp.git@main&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ml-server serve-debug ml_server.app.example:app
-</pre></div>
-</div>
-<p>…or via docker:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run --rm -it <span class="se">\</span>
-    --publish <span class="m">8080</span>:8080 <span class="se">\</span>
-    --volume <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/ml_server:/root/ml_server <span class="se">\</span>
-    juftin/ml-server:latest <span class="se">\</span>
-    serve-debug ml_server.app.example:app
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>fastapp serve-debug fastapp.app.example:app
 </pre></div>
 </div>
 </section>
-<section id="using-ml-server-to-build-an-app">
-<h2>Using ml-server to build an app<a class="headerlink" href="#using-ml-server-to-build-an-app" title="Permalink to this headline"></a></h2>
+<section id="using-fastapp-to-build-an-app">
+<h2>Using FastApp to build an app<a class="headerlink" href="#using-fastapp-to-build-an-app" title="Permalink to this headline"></a></h2>
 <p>Create a Python File with Endpoints, we’ll call this <code class="docutils literal notranslate"><span class="pre">main.py</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
-<span class="kn">from</span> <span class="nn">ml_server.app</span> <span class="kn">import</span> <span class="n">app</span>
+<span class="kn">from</span> <span class="nn">fastapp.app</span> <span class="kn">import</span> <span class="n">app</span>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/hello&quot;</span><span class="p">)</span>
@@ -121,20 +114,36 @@
                 <span class="n">hello</span><span class="o">=</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Then, using the <code class="docutils literal notranslate"><span class="pre">ml-server</span></code> CLI we can serve this App:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ml-server serve-debug main:app
+<p>Then, using the <code class="docutils literal notranslate"><span class="pre">FastApp</span></code> CLI we can serve this App:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>fastapp serve-debug main:app
+</pre></div>
+</div>
+<p>…or via docker:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run --rm -it <span class="se">\</span>
+    --publish <span class="m">8080</span>:8080 <span class="se">\</span>
+    --volume <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/main.py:/root/fastapp/main.py <span class="se">\</span>
+    juftin/fastapp:latest <span class="se">\</span>
+    serve-debug main:app
 </pre></div>
 </div>
 <p>Test out our new endpoint:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl <span class="se">\</span>
   --request GET <span class="se">\</span>
-  --silent <span class="se">\</span>
   --header <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
   http://localhost:8080/hello
 </pre></div>
 </div>
-<p>Alternatively, if we want to serve this app using Gunicorn, Nginx, and the UvicornWorker:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ml-server serve main:app
+<p>Alternatively, if we want to serve this app using Gunicorn, Nginx, and the UvicornWorker we can use
+the <code class="docutils literal notranslate"><span class="pre">serve</span></code> command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>fastapp serve main:app
+</pre></div>
+</div>
+<p>I prefer doing this within a docker container so you don’t have to run Nginx on the host machine:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run --rm -it <span class="se">\</span>
+    --publish <span class="m">8080</span>:8080 <span class="se">\</span>
+    --volume <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/main.py:/root/fastapp/main.py <span class="se">\</span>
+    juftin/fastapp:latest <span class="se">\</span>
+    serve main:app
 </pre></div>
 </div>
 </section>
@@ -144,8 +153,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="ml-server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="cli.html" class="btn btn-neutral float-right" title="ml-server CLI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="FastApp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cli.html" class="btn btn-neutral float-right" title="FastApp CLI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

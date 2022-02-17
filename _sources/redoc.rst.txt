@@ -1,8 +1,8 @@
 ##################
-ml-server REST API
+FastApp REST API
 ##################
 
-ml-server uses an OpenAPI supported ASGI Server with FastAPI.
+FastApp uses an OpenAPI supported ASGI Server with FastAPI.
 
 .. image:: https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png
     :width: 400

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml_server.app.utils &mdash; ml-server 0.1.3 documentation</title>
+  <title>fastapp.models.base &mdash; FastApp 0.1.4 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/autodoc_pydantic.css" type="text/css" />
@@ -29,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> ml-server
+            <a href="../../../index.html" class="icon icon-home"> FastApp
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -52,7 +52,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">ml-server</a>
+          <a href="../../../index.html">FastApp</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -61,7 +61,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>ml_server.app.utils</li>
+      <li>fastapp.models.base</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -70,29 +70,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for ml_server.app.utils</h1><div class="highlight"><pre>
+  <h1>Source code for fastapp.models.base</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">FastAPI Backend</span>
+<span class="sd">Base Pydantic Object for Containers</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">logging</span>
-
-<span class="kn">from</span> <span class="nn">starlette.templating</span> <span class="kn">import</span> <span class="n">_TemplateResponse</span>  <span class="c1"># noqa</span>
-
-<span class="kn">from</span> <span class="nn">ml_server.app.base</span> <span class="kn">import</span> <span class="n">MLServerRouter</span>
-<span class="kn">from</span> <span class="nn">ml_server.models</span> <span class="kn">import</span> <span class="n">bodies</span>
-
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-
-<span class="n">utils_router</span> <span class="o">=</span> <span class="n">MLServerRouter</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;utilities&quot;</span><span class="p">])</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
 
-<div class="viewcode-block" id="generic_request"><a class="viewcode-back" href="../../../api/ml_server.app.html#ml_server.app.utils.generic_request">[docs]</a><span class="nd">@utils_router</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/request&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">bodies</span><span class="o">.</span><span class="n">RequestBody</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">generic_request</span><span class="p">(</span><span class="n">body</span><span class="p">:</span> <span class="n">bodies</span><span class="o">.</span><span class="n">RequestBody</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">bodies</span><span class="o">.</span><span class="n">RequestBody</span><span class="p">:</span>
+<div class="viewcode-block" id="FastAppModel"><a class="viewcode-back" href="../../../api/fastapp.models.html#fastapp.FastAppModel">[docs]</a><span class="k">class</span> <span class="nc">FastAppModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Example Post Request with Expected Data</span>
+<span class="sd">    FastApp Pydantic BaseModel</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="HashableFastAppModel"><a class="viewcode-back" href="../../../api/fastapp.models.html#fastapp.HashableFastAppModel">[docs]</a><span class="k">class</span> <span class="nc">HashableFastAppModel</span><span class="p">(</span><span class="n">FastAppModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Hashable FastAppModel</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">body</span></div>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Hash Method for Pydantic BaseModels</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">((</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">),)</span> <span class="o">+</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span></div>
 </pre></div>
 
            </div>

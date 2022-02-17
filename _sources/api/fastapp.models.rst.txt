@@ -1,0 +1,37 @@
+fastapp.models package
+======================
+
+Submodules
+----------
+
+fastapp.models.base module
+--------------------------
+
+.. automodule:: fastapp.models.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fastapp.models.bodies module
+----------------------------
+
+.. automodule:: fastapp.models.bodies
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fastapp.models.responses module
+-------------------------------
+
+.. automodule:: fastapp.models.responses
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: fastapp.models
+   :members:
+   :undoc-members:
+   :show-inheritance:

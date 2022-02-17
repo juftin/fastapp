@@ -1,0 +1,21 @@
+fastapp.config package
+======================
+
+Submodules
+----------
+
+fastapp.config.gunicorn\_config module
+--------------------------------------
+
+.. automodule:: fastapp.config.gunicorn_config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: fastapp.config
+   :members:
+   :undoc-members:
+   :show-inheritance:

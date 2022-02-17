@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml_server.config package &mdash; ml-server 0.1.3 documentation</title>
+  <title>fastapp.config package &mdash; FastApp 0.1.4 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/autodoc_pydantic.css" type="text/css" />
@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ml_server.models package" href="ml_server.models.html" />
-    <link rel="prev" title="ml_server.app package" href="ml_server.app.html" /> 
+    <link rel="next" title="fastapp.models package" href="fastapp.models.html" />
+    <link rel="prev" title="fastapp.app package" href="fastapp.app.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +32,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> ml-server
+            <a href="../index.html" class="icon icon-home"> FastApp
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -47,16 +47,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">CLI Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redoc.html">REST API Documentation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Documentation</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="ml_server.html">ml_server package</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="ml_server.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="ml_server.app.html">ml_server.app package</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">ml_server.config package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ml_server.models.html">ml_server.models package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="fastapp.html">fastapp package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="fastapp.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="fastapp.app.html">fastapp.app package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">fastapp.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fastapp.models.html">fastapp.models package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="ml_server.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ml_server.html#module-ml_server.serve">ml_server.serve module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ml_server.html#module-ml_server">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fastapp.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fastapp.html#module-fastapp.serve">fastapp.serve module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fastapp.html#module-fastapp">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -69,7 +69,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">ml-server</a>
+          <a href="../index.html">FastApp</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -77,11 +77,11 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">ml_server</a> &raquo;</li>
-          <li><a href="ml_server.html">ml_server package</a> &raquo;</li>
-      <li>ml_server.config package</li>
+          <li><a href="modules.html">fastapp</a> &raquo;</li>
+          <li><a href="fastapp.html">fastapp package</a> &raquo;</li>
+      <li>fastapp.config package</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/api/ml_server.config.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/fastapp.config.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -89,18 +89,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="ml-server-config-package">
-<h1>ml_server.config package<a class="headerlink" href="#ml-server-config-package" title="Permalink to this headline"></a></h1>
+  <section id="fastapp-config-package">
+<h1>fastapp.config package<a class="headerlink" href="#fastapp-config-package" title="Permalink to this headline"></a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
 </section>
-<section id="module-ml_server.config.gunicorn_config">
-<span id="ml-server-config-gunicorn-config-module"></span><h2>ml_server.config.gunicorn_config module<a class="headerlink" href="#module-ml_server.config.gunicorn_config" title="Permalink to this headline"></a></h2>
+<section id="module-fastapp.config.gunicorn_config">
+<span id="fastapp-config-gunicorn-config-module"></span><h2>fastapp.config.gunicorn_config module<a class="headerlink" href="#module-fastapp.config.gunicorn_config" title="Permalink to this headline"></a></h2>
 <p>Gunicorn Configuration File</p>
 </section>
-<section id="module-ml_server.config">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ml_server.config" title="Permalink to this headline"></a></h2>
-<p>ml-server config</p>
+<section id="module-fastapp.config">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fastapp.config" title="Permalink to this headline"></a></h2>
+<p>FastApp config</p>
 </section>
 </section>
 
@@ -108,8 +108,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ml_server.app.html" class="btn btn-neutral float-left" title="ml_server.app package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ml_server.models.html" class="btn btn-neutral float-right" title="ml_server.models package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="fastapp.app.html" class="btn btn-neutral float-left" title="fastapp.app package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fastapp.models.html" class="btn btn-neutral float-right" title="fastapp.models package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
