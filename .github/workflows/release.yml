@@ -7,7 +7,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Set up Github Workspace
-                uses: actions/checkout@v2
+                uses: actions/checkout@v3
                 with:
                     fetch-depth: 0
             -   name: Version Fetcher
@@ -34,7 +34,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Set up Github Workspace
-                uses: actions/checkout@v2
+                uses: actions/checkout@v3
                 with:
                     fetch-depth: 0
             -   name: Set up Python Environment 3.9
@@ -61,7 +61,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Set up Github Workspace
-                uses: actions/checkout@v2
+                uses: actions/checkout@v3
                 with:
                     fetch-depth: 0
             -   name: Set up QEMU
