@@ -13,13 +13,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Latest Changes
-                uses: actions/checkout@v2
+                uses: actions/checkout@v3
                 with:
                     path:        main
                     ref:         ${{ github.ref }}
                     fetch-depth: 0
             -   name: Checkout gh-pages Branch
-                uses: actions/checkout@v2
+                uses: actions/checkout@v3
                 with:
                     path:        github-pages
                     ref:         gh-pages
@@ -67,7 +67,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Set up Github Workspace
-                uses: actions/checkout@v2
+                uses: actions/checkout@v3
                 with:
                     fetch-depth: 0
                     ref:         ${{ github.head_ref }}
