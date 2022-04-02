@@ -7,18 +7,16 @@ HTTP Apps Made Easier with FastApp
 Installation
 ------------
 
-``FastApp`` isn't ready for PyPi yet. In the meantime you can install directly from GitHub:
-
 .. code-block:: shell
 
-   pip install "fastapp @ git+https://github.com/juftin/fastapp.git@main"
+   pip install fastapp
 
 Using Out the Example Server
 ----------------------------
 
 .. code-block:: shell
 
-   pip install "fastapp[example] @ git+https://github.com/juftin/fastapp.git@main"
+   pip install fastapp[example]
 
 .. code-block:: shell
 
