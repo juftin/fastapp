@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fastapp.models package &mdash; FastApp 0.1.6 documentation</title>
+  <title>fastapp.models package &mdash; FastApp 0.1.7 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/autodoc_pydantic.css" type="text/css" />
@@ -17,6 +17,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
@@ -89,35 +90,35 @@
            <div itemprop="articleBody">
              
   <section id="fastapp-models-package">
-<h1>fastapp.models package<a class="headerlink" href="#fastapp-models-package" title="Permalink to this headline"></a></h1>
+<h1>fastapp.models package<a class="headerlink" href="#fastapp-models-package" title="Permalink to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-fastapp.models.base">
-<span id="fastapp-models-base-module"></span><h2>fastapp.models.base module<a class="headerlink" href="#module-fastapp.models.base" title="Permalink to this headline"></a></h2>
+<span id="fastapp-models-base-module"></span><h2>fastapp.models.base module<a class="headerlink" href="#module-fastapp.models.base" title="Permalink to this heading"></a></h2>
 <p>Base Pydantic Object for Containers</p>
 <dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="fastapp.models.base.FastAppModel">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fastapp.models.base.</span></span><span class="sig-name descname"><span class="pre">FastAppModel</span></span><a class="reference internal" href="../_modules/fastapp/models/base.html#FastAppModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastapp.models.base.FastAppModel" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
 <p>FastApp Pydantic BaseModel</p>
 </dd></dl>
 
 <dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="fastapp.models.base.HashableFastAppModel">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fastapp.models.base.</span></span><span class="sig-name descname"><span class="pre">HashableFastAppModel</span></span><a class="reference internal" href="../_modules/fastapp/models/base.html#HashableFastAppModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastapp.models.base.HashableFastAppModel" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#fastapp.models.base.FastAppModel" title="fastapp.models.base.FastAppModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastapp.models.base.FastAppModel</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#fastapp.models.base.FastAppModel" title="fastapp.models.base.FastAppModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">FastAppModel</span></code></a></p>
 <p>Hashable FastAppModel</p>
 </dd></dl>
 
 </section>
 <section id="module-fastapp.models.bodies">
-<span id="fastapp-models-bodies-module"></span><h2>fastapp.models.bodies module<a class="headerlink" href="#module-fastapp.models.bodies" title="Permalink to this headline"></a></h2>
+<span id="fastapp-models-bodies-module"></span><h2>fastapp.models.bodies module<a class="headerlink" href="#module-fastapp.models.bodies" title="Permalink to this heading"></a></h2>
 <p>API Request Body Containers</p>
 <dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="fastapp.models.bodies.GensimRequest">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fastapp.models.bodies.</span></span><span class="sig-name descname"><span class="pre">GensimRequest</span></span><a class="reference internal" href="../_modules/fastapp/models/bodies.html#GensimRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastapp.models.bodies.GensimRequest" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#fastapp.models.base.FastAppModel" title="fastapp.models.base.FastAppModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastapp.models.base.FastAppModel</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#fastapp.models.base.FastAppModel" title="fastapp.models.base.FastAppModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">FastAppModel</span></code></a></p>
 <p>Data body for requests to the <cite>/most_similar</cite> endpoint</p>
 <dl class="field-list simple">
 <dt class="field-odd">Fields</dt>
@@ -130,12 +131,12 @@
 </dl>
 <dl class="py attribute pydantic_field">
 <dt class="sig sig-object py" id="fastapp.models.bodies.GensimRequest.negative">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">negative</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#fastapp.models.bodies.GensimRequest.negative" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">negative</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#fastapp.models.bodies.GensimRequest.negative" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute pydantic_field">
 <dt class="sig sig-object py" id="fastapp.models.bodies.GensimRequest.positive">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">positive</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#fastapp.models.bodies.GensimRequest.positive" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">positive</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#fastapp.models.bodies.GensimRequest.positive" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute pydantic_field">
@@ -148,7 +149,7 @@
 <dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="fastapp.models.bodies.RequestBody">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fastapp.models.bodies.</span></span><span class="sig-name descname"><span class="pre">RequestBody</span></span><a class="reference internal" href="../_modules/fastapp/models/bodies.html#RequestBody"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastapp.models.bodies.RequestBody" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#fastapp.models.base.FastAppModel" title="fastapp.models.base.FastAppModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastapp.models.base.FastAppModel</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#fastapp.models.base.FastAppModel" title="fastapp.models.base.FastAppModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">FastAppModel</span></code></a></p>
 <p>Data body for the generic <cite>/request</cite> endpoint</p>
 <dl class="field-list simple">
 <dt class="field-odd">Fields</dt>
@@ -173,7 +174,7 @@
 <dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="fastapp.models.bodies.SentimentRequest">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fastapp.models.bodies.</span></span><span class="sig-name descname"><span class="pre">SentimentRequest</span></span><a class="reference internal" href="../_modules/fastapp/models/bodies.html#SentimentRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastapp.models.bodies.SentimentRequest" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#fastapp.models.base.FastAppModel" title="fastapp.models.base.FastAppModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastapp.models.base.FastAppModel</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#fastapp.models.base.FastAppModel" title="fastapp.models.base.FastAppModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">FastAppModel</span></code></a></p>
 <p>Request Format for the <cite>/sentiment</cite> endpoint</p>
 <dl class="field-list simple">
 <dt class="field-odd">Fields</dt>
@@ -184,19 +185,19 @@
 </dl>
 <dl class="py attribute pydantic_field">
 <dt class="sig sig-object py" id="fastapp.models.bodies.SentimentRequest.text">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#fastapp.models.bodies.SentimentRequest.text" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#fastapp.models.bodies.SentimentRequest.text" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-fastapp.models.responses">
-<span id="fastapp-models-responses-module"></span><h2>fastapp.models.responses module<a class="headerlink" href="#module-fastapp.models.responses" title="Permalink to this headline"></a></h2>
+<span id="fastapp-models-responses-module"></span><h2>fastapp.models.responses module<a class="headerlink" href="#module-fastapp.models.responses" title="Permalink to this heading"></a></h2>
 <p>API Response Objects</p>
 <dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="fastapp.models.responses.PingResponse">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fastapp.models.responses.</span></span><span class="sig-name descname"><span class="pre">PingResponse</span></span><a class="reference internal" href="../_modules/fastapp/models/responses.html#PingResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastapp.models.responses.PingResponse" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#fastapp.models.base.FastAppModel" title="fastapp.models.base.FastAppModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastapp.models.base.FastAppModel</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#fastapp.models.base.FastAppModel" title="fastapp.models.base.FastAppModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">FastAppModel</span></code></a></p>
 <p>Response returned for the <cite>/ping</cite> endpoint</p>
 <dl class="field-list simple">
 <dt class="field-odd">Fields</dt>
@@ -219,7 +220,7 @@
 
 <dl class="py attribute pydantic_field">
 <dt class="sig sig-object py" id="fastapp.models.responses.PingResponse.timestamp">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timestamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><span class="pre">datetime.datetime</span></a></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#fastapp.models.responses.PingResponse.timestamp" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timestamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><span class="pre">datetime</span></a></em><em class="property"> <span class="pre">[Required]</span></em><a class="headerlink" href="#fastapp.models.responses.PingResponse.timestamp" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -227,7 +228,7 @@
 <dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="fastapp.models.responses.SentimentResponse">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fastapp.models.responses.</span></span><span class="sig-name descname"><span class="pre">SentimentResponse</span></span><a class="reference internal" href="../_modules/fastapp/models/responses.html#SentimentResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastapp.models.responses.SentimentResponse" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#fastapp.models.base.FastAppModel" title="fastapp.models.base.FastAppModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastapp.models.base.FastAppModel</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#fastapp.models.base.FastAppModel" title="fastapp.models.base.FastAppModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">FastAppModel</span></code></a></p>
 <p>Response returned from the <cite>/sentiment</cite> endpoint</p>
 <dl class="field-list simple">
 <dt class="field-odd">Fields</dt>
@@ -263,12 +264,12 @@
 
 </section>
 <section id="module-fastapp.models">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fastapp.models" title="Permalink to this headline"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fastapp.models" title="Permalink to this heading"></a></h2>
 <p>API Pydantic Models</p>
 <dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="fastapp.models.FastAppModel">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fastapp.models.</span></span><span class="sig-name descname"><span class="pre">FastAppModel</span></span><a class="reference internal" href="../_modules/fastapp/models/base.html#FastAppModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastapp.models.FastAppModel" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
 <p>FastApp Pydantic BaseModel</p>
 </dd></dl>
 
